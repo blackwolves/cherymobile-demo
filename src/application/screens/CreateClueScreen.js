@@ -6,6 +6,7 @@ import { View, Text, TextInput, ScrollView, Switch } from 'react-native';
 import { TableView, Section, CellItem } from './components/tableview';
 import Button from 'apsl-react-native-button';
 import ValidationComponent from '../FormValidator';
+import RightArrow from './components/RightArrow';
 
 class CreateClueScreen extends React.Component {
     constructor(props) {
@@ -68,85 +69,37 @@ class CreateClueScreen extends React.Component {
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         线索等级
                       </Text>
-                      <TextInput
-                                 ref="name"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="请填写"
-                                 onChangeText={ (name) => this.setState({
-                                                    name
-                                                }) }
-                                 value={ this.state.name }
-                                 style={ styles.input } />
+                      <RightArrow/>
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         线索来源
                       </Text>
-                      <TextInput
-                                 ref="phone"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="请填写"
-                                 onChangeText={ (phone) => this.setState({
-                                                    phone
-                                                }) }
-                                 value={ this.state.phone }
-                                 style={ styles.input } />
+                      <RightArrow/>
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         意向车型
                       </Text>
-                      <TextInput
-                                 ref="phone"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="请填写"
-                                 onChangeText={ (phone) => this.setState({
-                                                    phone
-                                                }) }
-                                 value={ this.state.phone }
-                                 style={ styles.input } />
+                      <RightArrow/>
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         付款方式
                       </Text>
-                      <TextInput
-                                 ref="phone"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="请填写"
-                                 onChangeText={ (phone) => this.setState({
-                                                    phone
-                                                }) }
-                                 value={ this.state.phone }
-                                 style={ styles.input } />
+                      <RightArrow/>
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         购车用途
                       </Text>
-                      <TextInput
-                                 ref="phone"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="请填写"
-                                 onChangeText={ (phone) => this.setState({
-                                                    phone
-                                                }) }
-                                 value={ this.state.phone }
-                                 style={ styles.input } />
+                      <RightArrow/>
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         购买类型
                       </Text>
-                      <TextInput
-                                 ref="phone"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="请填写"
-                                 onChangeText={ (phone) => this.setState({
-                                                    phone
-                                                }) }
-                                 value={ this.state.phone }
-                                 style={ styles.input } />
+                      <RightArrow/>
                     </CellItem>
                   </TableView>
                   <TableView>
