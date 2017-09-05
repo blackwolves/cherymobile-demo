@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, Button, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class ClueListItem extends React.Component {
     constructor(props) {
@@ -25,9 +26,11 @@ class ClueListItem extends React.Component {
                         待跟进
                       </Text>
                     </View>
-                    <Button
-                            onPress={ this.props.onPressEvent }
-                            title="More" />
+                    <Icon.Button
+                                 name="chevron-right"
+                                 backgroundColor="transparent"
+                                 color="gray"
+                                 onPress={ this.onPressEvent } />
                   </View>
                 </View>);
     }

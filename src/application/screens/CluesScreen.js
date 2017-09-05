@@ -39,10 +39,6 @@ class CluesScreen extends React.Component {
           case 'search':
             break;
         default:
-            this.props.navigator.push({
-              screen: 'application.CreateClueScreen',
-              title: '创建线索'
-            });
         }
     }
 
