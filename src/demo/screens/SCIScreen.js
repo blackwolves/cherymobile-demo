@@ -89,7 +89,6 @@ class SCIScreen extends React.Component {
                 //const alertTest = 'alert(document.getElementById("j_username").value.length);';
                 //const submitLogin = 'document.getElementById("logOnFormSubmit").click();';
 
-
                 //const injectScript = 'function executeAction(){document.getElementById("j_username").value ="' + this.props.username + '";document.getElementById("j_password").value ="' + this.props.password + '";document.getElementById("logOnFormSubmit").click();}';
                 //const injectScript = 'function executeAction(){document.getElementById("logOnFormSubmit").click();}';
                 //const execute = 'executeAction();';
