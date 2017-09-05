@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import styles from '../../demo/styles/FormScreenStyle';
+import styles from '../styles/FormScreenStyle';
 
 import { View, Text, TextInput, ScrollView, Switch } from 'react-native';
-import { TableView, Section, CellItem } from '../../demo/screens/components/tableview';
+import { TableView, Section, CellItem } from './components/tableview';
 import Button from 'apsl-react-native-button';
 import ValidationComponent from '../FormValidator';
 

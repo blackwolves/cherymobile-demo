@@ -3,9 +3,9 @@ import TimerEnhance from 'react-native-smart-timer-enhance';
 import PullToRefreshListView from 'react-native-smart-pull-to-refresh-listview';
 import { View, Text, ListView, ScrollView, ActivityIndicator, ActivityIndicatorIOS, StyleSheet, Dimensions } from 'react-native';
 import {connect} from 'react-redux';
-import styles from '../../demo/styles/ListScreenStyle';
+import styles from '../styles/ListScreenStyle';
 import ClueListItem from './components/ClueListItem';
-import DropdownMenu from '../../demo/screens/components/DropdownMenu';
+import DropdownMenu from './components/DropdownMenu';
 
 const DEVICE_WIDTH = Dimensions.get(`window`).width;
 

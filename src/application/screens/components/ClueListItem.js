@@ -30,7 +30,7 @@ class ClueListItem extends React.Component {
                                  name="chevron-right"
                                  backgroundColor="transparent"
                                  color="gray"
-                                 onPress={ this.onPressEvent } />
+                                 onPress={ this.props.onPressEvent } />
                   </View>
                 </View>);
     }
