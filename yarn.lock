@@ -3623,9 +3623,9 @@ react-native-looped-carousel@^0.1.7:
   version "0.1.7"
   resolved "http://registry.npm.taobao.org/react-native-looped-carousel/download/react-native-looped-carousel-0.1.7.tgz#9e81aec732039250568e367383d0bd70ba4173e9"
 
-react-native-navigation@^1.1.212:
-  version "1.1.212"
-  resolved "http://registry.npm.taobao.org/react-native-navigation/download/react-native-navigation-1.1.212.tgz#9e87f749cc4ba68d1d777b2957cd68400884b22c"
+react-native-navigation@^1.1.139:
+  version "1.1.213"
+  resolved "http://registry.npm.taobao.org/react-native-navigation/download/react-native-navigation-1.1.213.tgz#5f405d8f46538f4913ebfd369240cbe8bfbd0d92"
   dependencies:
     lodash "4.x.x"
 

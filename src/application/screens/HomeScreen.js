@@ -25,7 +25,7 @@ class HomeScreen extends React.Component {
                 返回
               </Button>
             </View>
-            );
+        );
     }
 }
 
