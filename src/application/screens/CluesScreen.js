@@ -32,8 +32,27 @@ class CluesScreen extends React.Component {
         switch (event.id) {
           case 'create':
           this.props.navigator.push({
-              screen: 'application.CreateClueScreen',
-              title: '创建线索'
+                label: '',
+                screen: 'application.CreateClueScreen',
+                title: '创建线索',
+                overrideBackPress: true,
+                navigatorStyle: {
+                    navBarTitleTextCentered: true
+                },
+                navigatorButtons: {
+                    rightButtons: [
+                        {
+                            title: '确定',
+                            id: 'save_create',
+                            testID: 'e2e_rules',
+                            disableIconTint: true,
+                            showAsAction: 'ifRoom',
+                            buttonColor: 'blue',
+                            buttonFontSize: 14,
+                            buttonFontWeight: '600'
+                        }
+                    ]
+                }
             });
            break;
           case 'search':
@@ -219,7 +238,7 @@ class CluesScreen extends React.Component {
     }
 
     render() {
-         const data = [["线索来源", "微信", "网络"], ["创建时间", "2017", "2016", "2015"], ["线索等级", "A级", "B级", "C级", "D级"]];
+        const data = [["线索来源", "微信", "网络"], ["创建时间", "2017", "2016", "2015"], ["线索等级", "A级", "B级", "C级", "D级"]];
        
         return (<View
                       style={ styles.container }
@@ -232,12 +251,9 @@ class CluesScreen extends React.Component {
                             tintColor={ "gray" }
                             selectItemColor={ "gray" }
                             data={ data }
-                            maxHeight={ 410 }
+                            maxHeight={ 100 }
                             handler={ (selection, row) => alert(data[selection][row]) }>
-                     <View style={ { flex: 1, alignItems: 'center', justifyContent: 'center' } } />
-                   </DropdownMenu>
-
-                   <PullToRefreshListView
+                     <PullToRefreshListView
                       ref={(component) => this._pullToRefreshListView = component}
                       viewType={PullToRefreshListView.constants.viewType.listView}
                       style={styles.container}
@@ -255,7 +271,8 @@ class CluesScreen extends React.Component {
                       pullUpStayDistance={50}
                       pullDownDistance={35}
                       pullDownStayDistance={50}
-                  />
+                    />
+                   </DropdownMenu>
                 </View>);
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class RightArrow extends React.Component {
@@ -9,11 +9,15 @@ class RightArrow extends React.Component {
 
     render() {
         return (<Icon.Button
-                             name="chevron-right"
+                             style={ { flexDirection: "row-reverse" } }
+                             iconStyle={ { marginLeft: 10, marginRight: 0 } }
+                             name="angle-right"
                              backgroundColor="transparent"
                              color="gray"
                              onPress={ this.props.onPressEvent }>
-                  请选择
+                  <Text style={ { fontFamily: 'Arial', fontSize: 15 } }>
+                    请选择
+                  </Text>
                 </Icon.Button>);
     }
 }

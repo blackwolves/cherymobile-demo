@@ -13,7 +13,8 @@ class CreateClueScreen extends React.Component {
         super(props);
         this.state = {
             name: '',
-            phone: ''
+            phone: '',
+            description: ''
         };
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
@@ -28,6 +29,16 @@ class CreateClueScreen extends React.Component {
             break;
         default:
         }
+    }
+
+    openSelectPanel(type) {
+        this.props.navigator.showSnackbar({
+            text: type,
+            actionText: 'Undo',
+            actionColor: '#ff0000',
+            actionId: 'undo',
+            duration: 'indefinite'
+        });
     }
 
     render() {
@@ -69,52 +80,50 @@ class CreateClueScreen extends React.Component {
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         线索等级
                       </Text>
-                      <RightArrow/>
+                      <RightArrow onPressEvent={ () => this.openSelectPanel('线索等级') } />
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         线索来源
                       </Text>
-                      <RightArrow/>
+                      <RightArrow onPressEvent={ () => this.openSelectPanel('线索来源') } />
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         意向车型
                       </Text>
-                      <RightArrow/>
+                      <RightArrow onPressEvent={ () => this.openSelectPanel('意向车型') } />
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         付款方式
                       </Text>
-                      <RightArrow/>
+                      <RightArrow onPressEvent={ () => this.openSelectPanel('付款方式') } />
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         购车用途
                       </Text>
-                      <RightArrow/>
+                      <RightArrow onPressEvent={ () => this.openSelectPanel('购车用途') } />
                     </CellItem>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         购买类型
                       </Text>
-                      <RightArrow/>
+                      <RightArrow onPressEvent={ () => this.openSelectPanel('购买类型') } />
                     </CellItem>
                   </TableView>
-                  <TableView>
-                    <CellItem>
-                      <TextInput
-                                 ref="phone"
-                                 underlineColorAndroid="transparent"
-                                 placeholder="备注"
-                                 onChangeText={ (phone) => this.setState({
-                                                    phone
-                                                }) }
-                                 value={ this.state.phone }
-                                 style={ styles.input } />
-                    </CellItem>
-                  </TableView>
+                  <TextInput
+                             ref="description"
+                             underlineColorAndroid="transparent"
+                             placeholder="备注"
+                             multiline={ true }
+                             numberOfLines={ 4 }
+                             onChangeText={ (description) => this.setState({
+                                                description
+                                            }) }
+                             value={ this.state.description }
+                             style={ { marginLeft: 10 } } />
                 </ScrollView>);
     }
 }

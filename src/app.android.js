@@ -184,7 +184,9 @@ export default class App {
                         selectedIcon: require('../img/navicon_add.png'),
                         title: '创建线索',
                         overrideBackPress: true,
-                        navigatorStyle: {},
+                        navigatorStyle: {
+                            navBarTitleTextCentered: true
+                        },
                         navigatorButtons: {
                             rightButtons: [
                                 {
