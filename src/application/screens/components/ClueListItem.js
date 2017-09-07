@@ -1,38 +1,96 @@
 import React from 'react';
-import { View, Text, ScrollView, Button, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Button, StyleSheet, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Label from './Label';
+import _ from 'lodash';
 
 class ClueListItem extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    _createLabelList() {
+        let data = this.props.data;
+        let labelComponents = [];
+        if (data.labels) {
+            labelComponents = _.map(data.labels, function(data) {
+                return (<Label
+                               key={ data.key }
+                               style={ { marginLeft: 10 } }
+                               text={ data.text }
+                               color={ _.isEqual(data.text, '新增') ? "#d50000" : "#64dd17" }>
+                        </Label>);
+            })
+        }
+        return (<View style={ [styles.base, styles.labelsContainer] }>
+                  { labelComponents }
+                </View>)
+    }
+
     render() {
-        return (<View style={ { padding: 20, flex: 1, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', marginTop: 10 } }>
-                  <View style={ { width: '80%' } }>
-                    <Text>
-                      { this.props.text }
-                    </Text>
-                    <Text>
-                      测试
-                    </Text>
-                  </View>
-                  <View style={ { width: '20%', flex: 1, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' } }>
-                    <View>
-                      <Text>
-                        C级
+        let lableList = this._createLabelList();
+        return (<TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.props.onPressEvent }>
+                  <View style={ [styles.base, styles.container] }>
+                    <View style={ styles.leftContainer }>
+                      <Text style={ styles.title }>
+                        { this.props.data.text }
                       </Text>
-                      <Text>
-                        待跟进
-                      </Text>
+                      { lableList }
                     </View>
-                    <Icon.Button
-                                 name="chevron-right"
-                                 backgroundColor="transparent"
-                                 color="gray"
-                                 onPress={ this.props.onPressEvent } />
+                    <View style={ [styles.base, styles.rightContainer] }>
+                      <View>
+                        <Text style={ styles.title }>
+                          { this.props.data.level }
+                        </Text>
+                        <Text style={ styles.statusStyle }>
+                          { this.props.data.status }
+                        </Text>
+                      </View>
+                      <Icon.Button
+                                   name="angle-right"
+                                   backgroundColor="transparent"
+                                   color="#9E9E9E" />
+                    </View>
                   </View>
-                </View>);
+                </TouchableHighlight>);
     }
 }
+
+const styles = StyleSheet.create({
+    touchable: {
+        width: '100%'
+    },
+    base: {
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    container: {
+        padding: 10,
+        backgroundColor: 'white'
+    },
+    labelsContainer: {
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        marginTop: 5
+    },
+    leftContainer: {
+        width: '80%'
+    },
+    rightContainer: {
+        width: '20%'
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 14
+    },
+    statusStyle: {
+        fontSize: 14,
+        color: '#9E9E9E'
+    }
+});
+
 export default ClueListItem;

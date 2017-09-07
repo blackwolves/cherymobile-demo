@@ -35,7 +35,6 @@ class CluesScreen extends React.Component {
                 label: '',
                 screen: 'application.CreateClueScreen',
                 title: '创建线索',
-                overrideBackPress: true,
                 navigatorStyle: {
                     navBarTitleTextCentered: true
                 },
@@ -76,7 +75,7 @@ class CluesScreen extends React.Component {
    _renderRow = (rowData, sectionID, rowID) => {
         return (
             <View style={styles.thumbnail}>
-                <ClueListItem style={styles.textContainer} text={rowData.text} onPressEvent={event => this.navigateToDetail(event, rowData)}/>
+                <ClueListItem style={styles.textContainer} data={rowData} onPressEvent={event => this.navigateToDetail(event, rowData)}/>
             </View>
         );
     }
@@ -163,11 +162,15 @@ class CluesScreen extends React.Component {
         //simulate request data
         setTimeout(() => {
             //console.log('outside _onRefresh end...')
-            const addNum = 20;
+            const addNum = 10;
             const refreshedDataList = [];
             for (let i = 0; i < addNum; i++) {
                 refreshedDataList.push({
-                    text: `购车询价-${i}`
+                    key: "${i}",
+                    text: `购车询价-${i}`,
+                    labels:[{text:"新增"},{text:"多次到店"}],
+                    level:"C级",
+                    status:"待跟进"
                 });
             }
 
@@ -184,14 +187,18 @@ class CluesScreen extends React.Component {
 
         setTimeout(() => {
             const length = this.state.dataList.length;
-            let addNum = 20;
+            let addNum = 10;
             const addedDataList = [];
             if (length >= 100) {
                 addNum = 3;
             }
             for (let i = length; i < length + addNum; i++) {
                 addedDataList.push({
-                    text: `购车询价-${i}`
+                    key: "${i}",
+                    text: `购车询价-${i}`,
+                    labels:[{text:"到店"},{text:"交车"}],
+                    level:"C级",
+                    status:"待跟进"
                 });
             }
             const newDataList = this.state.dataList.concat(addedDataList);
@@ -251,7 +258,7 @@ class CluesScreen extends React.Component {
                             tintColor={ "gray" }
                             selectItemColor={ "gray" }
                             data={ data }
-                            maxHeight={ 100 }
+                            maxHeight={ 410 }
                             handler={ (selection, row) => alert(data[selection][row]) }>
                      <PullToRefreshListView
                       ref={(component) => this._pullToRefreshListView = component}

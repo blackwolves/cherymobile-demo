@@ -8,15 +8,15 @@ const ListScreenStyle = StyleSheet.create({
     thumbnail: {
         padding: 6,
         flexDirection: 'row',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderBottomColor: '#ccc',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: '#EEEEEE'
     },
     textContainer: {
         padding: 20,
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100%'
     }
 });
 

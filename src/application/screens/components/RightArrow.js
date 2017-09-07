@@ -12,7 +12,7 @@ class RightArrow extends React.Component {
                              style={ { flexDirection: "row-reverse" } }
                              iconStyle={ { marginLeft: 10, marginRight: 0 } }
                              name="angle-right"
-                             backgroundColor="transparent"
+                             backgroundColor="white"
                              color="gray"
                              onPress={ this.props.onPressEvent }>
                   <Text style={ { fontFamily: 'Arial', fontSize: 15 } }>
