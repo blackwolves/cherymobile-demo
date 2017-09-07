@@ -251,10 +251,10 @@ class CluesScreen extends React.Component {
                       ref={(component) => this._pullToRefreshListView = component}
                       viewType={PullToRefreshListView.constants.viewType.listView}
                       style={styles.container}
-                      initialListSize={20}
+                      initialListSize={10}
                       enableEmptySections={true}
                       dataSource={this.state.dataSource}
-                      pageSize={20}
+                      pageSize={10}
                       renderRow={this._renderRow}
                       renderHeader={this._renderHeader}
                       renderFooter={this._renderFooter}

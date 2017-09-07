@@ -36,6 +36,7 @@ import ClueDetailScreen from './application/screens/ClueDetailScreen';
 
 import UserProfileScreen from './application/screens/UserProfileScreen';
 
+import SelectModal from './application/screens/SelectModal';
 export function registerScreens(store, Provider) {
     Navigation.registerComponent('demo.LoginScreen', () => DemoLoginScreen, store, Provider);
     Navigation.registerComponent('demo.HomeScreen', () => DemoHomeScreen, store, Provider);
@@ -68,6 +69,8 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('application.CluesScreen', () => CluesScreen, store, Provider);
     Navigation.registerComponent('application.CreateClueScreen', () => CreateClueScreen, store, Provider);
     Navigation.registerComponent('application.ClueDetailScreen', () => ClueDetailScreen, store, Provider);
+
+    Navigation.registerComponent('application.SelectModal', () => SelectModal, store, Provider);
 
     Navigation.registerComponent('application.UserProfileScreen', () => UserProfileScreen, store, Provider);
 }

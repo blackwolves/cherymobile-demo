@@ -17,6 +17,10 @@ class CreateClueScreen extends React.Component {
             description: ''
         };
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+        this.props.navigator.setDrawerEnabled({
+            side: 'right',
+            enabled: true
+        });
     }
 
     onNavigatorEvent(event) {
@@ -32,12 +36,18 @@ class CreateClueScreen extends React.Component {
     }
 
     openSelectPanel(type) {
-        this.props.navigator.showSnackbar({
-            text: type,
-            actionText: 'Undo',
-            actionColor: '#ff0000',
-            actionId: 'undo',
-            duration: 'indefinite'
+        this.props.navigator.showModal({
+            screen: 'application.SelectModal',
+            animationType: 'slide-up',
+            navigatorStyle: {
+                navBarComponentAlignment: 'center',
+                navBarTranslucent: false,
+                navBarTransparent: false,
+                navBarNoBorder: true,
+                navBarTitleTextCentered: true,
+                navBarHidden: true
+            },
+            title: type
         });
     }
 
