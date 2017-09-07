@@ -168,9 +168,9 @@ class CluesScreen extends React.Component {
                 refreshedDataList.push({
                     key: "${i}",
                     text: `购车询价-${i}`,
-                    labels:[{text:"新增"},{text:"多次到店"}],
-                    level:"C级",
-                    status:"待跟进"
+                    labels: [{text: "新增"}, {text: "多次到店"}],
+                    level: "C级",
+                    status: "待跟进"
                 });
             }
 
@@ -196,9 +196,9 @@ class CluesScreen extends React.Component {
                 addedDataList.push({
                     key: "${i}",
                     text: `购车询价-${i}`,
-                    labels:[{text:"到店"},{text:"交车"}],
-                    level:"C级",
-                    status:"待跟进"
+                    labels: [{text: "到店"}, {text: "交车"}],
+                    level: "C级",
+                    status: "待跟进"
                 });
             }
             const newDataList = this.state.dataList.concat(addedDataList);
@@ -247,7 +247,7 @@ class CluesScreen extends React.Component {
     render() {
         const data = [["线索来源", "微信", "网络"], ["创建时间", "2017", "2016", "2015"], ["线索等级", "A级", "B级", "C级", "D级"]];
 
-        let pageContent = (<PullToRefreshListView
+        const pageContent = (<PullToRefreshListView
                       ref={(component) => this._pullToRefreshListView = component}
                       viewType={PullToRefreshListView.constants.viewType.listView}
                       style={styles.container}
@@ -267,7 +267,7 @@ class CluesScreen extends React.Component {
                       pullDownStayDistance={50}
                     />);
 
-        let content = this.props.type === 'month' ? pageContent: ( <DropdownMenu
+        const content = this.props.type === 'month' ? pageContent : ( <DropdownMenu
                             style={ { flex: 1 } }
                             arrowImg={ require('../../../img/dropdown_arrow.png') }
                             checkImage={ require('../../../img/menu_check.png') }

@@ -10,25 +10,24 @@ class ClueListItem extends React.Component {
     }
 
     _createLabelList() {
-        let data = this.props.data;
+        const data = this.props.data;
         let labelComponents = [];
         if (data.labels) {
-            labelComponents = _.map(data.labels, function(data) {
+            labelComponents = _.map(data.labels, function(rowData) {
                 return (<Label
-                               key={ data.key }
+                               key={ rowData.key }
                                style={ { marginLeft: 10 } }
-                               text={ data.text }
-                               color={ _.isEqual(data.text, '新增') ? "#d50000" : "#64dd17" }>
-                        </Label>);
-            })
+                               text={ rowData.text }
+                               color={ _.isEqual(rowData.text, '新增') ? "#d50000" : "#64dd17" } />);
+            });
         }
         return (<View style={ [styles.base, styles.labelsContainer] }>
                   { labelComponents }
-                </View>)
+                </View>);
     }
 
     render() {
-        let lableList = this._createLabelList();
+        const lableList = this._createLabelList();
         return (<TouchableHighlight
                                     style={ styles.touchable }
                                     onPress={ this.props.onPressEvent }>
