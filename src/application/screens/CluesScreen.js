@@ -246,21 +246,8 @@ class CluesScreen extends React.Component {
 
     render() {
         const data = [["线索来源", "微信", "网络"], ["创建时间", "2017", "2016", "2015"], ["线索等级", "A级", "B级", "C级", "D级"]];
-       
-        return (<View
-                      style={ styles.container }
-                      keyboardShouldPersistTaps="always">
-                   <DropdownMenu
-                            style={ { flex: 1 } }
-                            arrowImg={ require('../../../img/dropdown_arrow.png') }
-                            checkImage={ require('../../../img/menu_check.png') }
-                            bgColor={ "white" }
-                            tintColor={ "gray" }
-                            selectItemColor={ "gray" }
-                            data={ data }
-                            maxHeight={ 410 }
-                            handler={ (selection, row) => alert(data[selection][row]) }>
-                     <PullToRefreshListView
+
+        let pageContent = (<PullToRefreshListView
                       ref={(component) => this._pullToRefreshListView = component}
                       viewType={PullToRefreshListView.constants.viewType.listView}
                       style={styles.container}
@@ -278,8 +265,24 @@ class CluesScreen extends React.Component {
                       pullUpStayDistance={50}
                       pullDownDistance={35}
                       pullDownStayDistance={50}
-                    />
-                   </DropdownMenu>
+                    />);
+
+        let content = this.props.type === 'month' ? pageContent: ( <DropdownMenu
+                            style={ { flex: 1 } }
+                            arrowImg={ require('../../../img/dropdown_arrow.png') }
+                            checkImage={ require('../../../img/menu_check.png') }
+                            bgColor={ "white" }
+                            tintColor={ "gray" }
+                            selectItemColor={ "gray" }
+                            data={ data }
+                            maxHeight={ 410 }
+                            handler={ (selection, row) => alert(data[selection][row]) }>
+                                {pageContent}
+                            </DropdownMenu>);
+        return (<View
+                      style={ styles.container }
+                      keyboardShouldPersistTaps="always">
+                      {content}
                 </View>);
     }
 }

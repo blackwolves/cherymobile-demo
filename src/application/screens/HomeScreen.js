@@ -11,6 +11,18 @@ class HomeScreen extends React.Component {
     performBack() {
         this.props.dispatch(appActions.changeLoginStatus('start', 'initial'));
     }
+    navigateTo(type) {
+        this.props.navigator.push({
+            screen: 'application.CluesScreen',
+            title: type === "month" ? '本月线索' : '新增线索',
+            navigatorStyle: {
+                navBarTitleTextCentered: true
+            },
+            passProps: {
+                type: type
+            }
+        });
+    }
     render() {
         return (
             <View style={ styles.container }>
@@ -23,6 +35,20 @@ class HomeScreen extends React.Component {
                       textStyle={ styles.textStyle6 }
                       onPress={ this.performBack.bind(this) }>
                 返回
+              </Button>
+              <Button
+                      isLoading={ false }
+                      style={ styles.buttonContainer }
+                      textStyle={ styles.textStyle6 }
+                      onPress={ this.navigateTo.bind(this, "month") }>
+                本月线索
+              </Button>
+              <Button
+                      isLoading={ false }
+                      style={ styles.buttonContainer }
+                      textStyle={ styles.textStyle6 }
+                      onPress={ this.navigateTo.bind(this, "new") }>
+                新增线索
               </Button>
             </View>
         );
