@@ -31,6 +31,12 @@ class HomeScreen extends React.Component {
             case 'avatar':
                 this.toggleDrawer();
                 break;
+            case 'add':
+                this.props.navigator.push({
+                    title: 'Timeline Page',
+                    screen: 'demo.TimelineScreen'
+                });
+                break;
             default:
                 break;
         }

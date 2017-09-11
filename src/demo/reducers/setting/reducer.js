@@ -14,7 +14,8 @@ const initialState = Immutable({
         navigationBarColor: '#003a66',
         //navBarBackgroundColor: '#003a66',
         statusBarColor: '#002b4c',
-        tabFontFamily: 'BioRhyme-Bold'
+        tabFontFamily: 'BioRhyme-Bold',
+        forceTitlesDisplay: true
     }
 });
 

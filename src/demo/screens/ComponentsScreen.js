@@ -135,7 +135,6 @@ class ComponentsScreen extends React.Component {
             screen: 'demo.ContactScreen'
         });
     }
-
     render() {
         return (
             <ScrollView style={ styles.container }>

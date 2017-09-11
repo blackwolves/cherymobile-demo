@@ -10,6 +10,11 @@ const HomeScreenStyle = StyleSheet.create({
     image: {
         width: nPicWidth,
         height: nPicHeight
+    },
+    actionButton: {
+        position: 'absolute',
+        bottom: -50,
+        zIndex: 10001
     }
 });
 

@@ -76,6 +76,9 @@ class LoginScreen extends Component {
             }
         });
     }
+    performMockWithoutLogin = () => {
+        this.props.dispatch(appActions.changeLoginStatus('demo-after-login', 'success'));
+    }
     performGetLoginUser() {
         this.props.dispatch(appActions.getLoginUser());
     }
@@ -109,6 +112,13 @@ class LoginScreen extends Component {
                                textStyle={ styles.textStyle6 }
                                onPress={ this.performMockLogout.bind(this) }>
                          注销账户
+                       </Button>
+                       <Button
+                               isLoading={ loading }
+                               style={ styles.buttonContainer }
+                               textStyle={ styles.textStyle6 }
+                               onPress={ this.performMockWithoutLogin.bind(this) }>
+                         直接进入
                        </Button>
                        <Button
                                isLoading={ loading }
