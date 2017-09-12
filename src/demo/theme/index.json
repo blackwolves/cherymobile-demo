@@ -29,7 +29,8 @@
     // Android only
     "navigationBarColor": '#000000', // change the background color of the bottom native navigation bar.
     "statusBarColor": '#000000', // change the color of the status bar.
-    "collapsingToolBarCollapsedColor": '#0f2362' // Collapsing Toolbar scrim color.
+    "collapsingToolBarCollapsedColor": '#0f2362', // Collapsing Toolbar scrim color.
+    "forceTitlesDisplay":true
   },
   "DARK_THEME":{
     // Common
@@ -66,6 +67,7 @@
     // Android only
     "navigationBarColor": '#003a66', // change the background color of the bottom native navigation bar.
     "statusBarColor": '#002b4c', // change the color of the status bar.
-    "collapsingToolBarCollapsedColor": '#0f2362' // Collapsing Toolbar scrim color.
+    "collapsingToolBarCollapsedColor": '#0f2362', // Collapsing Toolbar scrim color.
+    "forceTitlesDisplay":true
   }
 }

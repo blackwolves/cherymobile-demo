@@ -106,12 +106,19 @@ export default class App {
                             navigatorStyle: {}
                         },
                         {
+                            label: '',
+                            screen: 'demo.C4CModuleListScreen',
+                            icon: require('../img/navicon_add.png'),
+                            selectedIcon: require('../img/navicon_add.png'),
+                            title: '添加页面',
+                            navigatorStyle: {}
+                        },
+                        {
                             label: '图片相关',
                             screen: 'demo.AlbumScreen',
                             icon: require('../img/three.png'),
                             selectedIcon: require('../img/three_selected.png'),
                             title: '图片相关',
-                            overrideBackPress: true,
                             navigatorStyle: {}
                         },
                         {
@@ -124,7 +131,8 @@ export default class App {
                             navigatorStyle: {}
                         }
                     ],
-                    animationType: 'fade',
+
+                    animationType: 'none',
                     tabsStyle: theme,
                     appStyle: theme
                 });
@@ -143,11 +151,80 @@ export default class App {
                             navigatorStyle: {}
                         },
                         {
+                            label: '线索',
+                            screen: 'application.CluesScreen',
+                            icon: require('../img/one.png'),
+                            selectedIcon: require('../img/one_selected.png'),
+                            title: '线索',
+                            overrideBackPress: true,
+                            navigatorStyle: {
+                                navBarTitleTextCentered: true
+                            },
+                            navigatorButtons: {
+                                leftButtons: [
+                                    {
+                                        title: '搜索',
+                                        id: 'search',
+                                        disableIconTint: true,
+                                        buttonColor: 'blue',
+                                        buttonFontSize: 14,
+                                        buttonFontWeight: '600'
+                                    }
+                                ],
+                                rightButtons: [
+                                    {
+                                        title: '创建',
+                                        id: 'create',
+                                        testID: 'e2e_rules',
+                                        disableIconTint: true,
+                                        showAsAction: 'ifRoom',
+                                        buttonColor: 'blue',
+                                        buttonFontSize: 14,
+                                        buttonFontWeight: '600'
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            label: '',
+                            screen: 'application.CreateClueScreen',
+                            icon: require('../img/navicon_add.png'),
+                            selectedIcon: require('../img/navicon_add.png'),
+                            title: '创建线索',
+                            overrideBackPress: true,
+                            navigatorStyle: {
+                                navBarTitleTextCentered: true
+                            },
+                            navigatorButtons: {
+                                rightButtons: [
+                                    {
+                                        title: '确定',
+                                        id: 'save_create',
+                                        testID: 'e2e_rules',
+                                        disableIconTint: true,
+                                        showAsAction: 'ifRoom',
+                                        buttonColor: 'blue',
+                                        buttonFontSize: 14,
+                                        buttonFontWeight: '600'
+                                    }
+                                ]
+                            }
+                        },
+                        {
                             label: '客户',
                             screen: 'application.CustomerListScreen',
                             icon: require('../img/one.png'),
                             selectedIcon: require('../img/one_selected.png'),
-                            title: '控件库',
+                            title: '客户',
+                            overrideBackPress: true,
+                            navigatorStyle: {}
+                        },
+                        {
+                            label: '我的',
+                            screen: 'application.UserProfileScreen',
+                            icon: require('../img/one.png'),
+                            selectedIcon: require('../img/one_selected.png'),
+                            title: '我的',
                             overrideBackPress: true,
                             navigatorStyle: {}
                         }
