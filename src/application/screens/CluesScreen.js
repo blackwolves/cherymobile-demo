@@ -10,6 +10,33 @@ import DropdownMenu from './components/DropdownMenu';
 const DEVICE_WIDTH = Dimensions.get(`window`).width;
 
 class CluesScreen extends React.Component {
+
+    static navigatorButtons = {
+        leftButtons: [
+            {
+                title: '搜索',
+                id: 'search',
+                disableIconTint: true,
+                buttonColor: 'blue',
+                buttonFontSize: 14,
+                showAsAction: 'ifRoom',
+                buttonFontWeight: '600'
+            }
+        ],
+        rightButtons: [
+            {
+                title: '创建',
+                id: 'create',
+                testID: 'e2e_rules',
+                disableIconTint: true,
+                showAsAction: 'ifRoom',
+                buttonColor: 'blue',
+                buttonFontSize: 14,
+                buttonFontWeight: '600'
+            }
+        ]
+    };
+
     constructor(props) {
         super(props);
 
@@ -64,6 +91,9 @@ class CluesScreen extends React.Component {
         this.props.navigator.push({
             screen: 'application.ClueDetailScreen',
             title: rowData.text,
+            navigatorStyle: {
+               navBarTitleTextCentered: true
+            },
             passProps: {}
         });
     }
@@ -168,7 +198,7 @@ class CluesScreen extends React.Component {
                 refreshedDataList.push({
                     key: "${i}",
                     text: `购车询价-${i}`,
-                    labels: [{text: "新增"}, {text: "多次到店"}],
+                    labels: [{key: "new", text: "新增"}, {key: "more", text: "多次到店"}],
                     level: "C级",
                     status: "待跟进"
                 });
@@ -196,7 +226,7 @@ class CluesScreen extends React.Component {
                 addedDataList.push({
                     key: "${i}",
                     text: `购车询价-${i}`,
-                    labels: [{text: "到店"}, {text: "交车"}],
+                    labels: [{key: "new", text: "到店"}, {key: "car", text: "交车"}],
                     level: "C级",
                     status: "待跟进"
                 });

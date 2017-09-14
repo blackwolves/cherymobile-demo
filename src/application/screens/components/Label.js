@@ -7,9 +7,7 @@ class Label extends React.Component {
     }
 
     render() {
-        return (<Text
-                      key={ this.props.key }
-                      style={ [this.props.style, styles.container, { backgroundColor: this.props.color }] }>
+        return (<Text style={ [this.props.style, styles.container, { backgroundColor: this.props.color }] }>
                   { this.props.text }
                 </Text>);
     }

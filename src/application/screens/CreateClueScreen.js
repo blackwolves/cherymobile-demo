@@ -9,6 +9,9 @@ import ValidationComponent from '../FormValidator';
 import RightArrow from './components/RightArrow';
 
 class CreateClueScreen extends React.Component {
+    /*static navigatorStyle = {
+        tabBarHidden: true
+    };*/
     constructor(props) {
         super(props);
         this.state = {
@@ -55,7 +58,7 @@ class CreateClueScreen extends React.Component {
         return (<ScrollView
                             style={ styles.container }
                             keyboardShouldPersistTaps="always">
-                  <TableView>
+                  <TableView style={ { backgroundColor: 'gray', paddingBottom: 20 } }>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         客户姓名
@@ -85,7 +88,7 @@ class CreateClueScreen extends React.Component {
                                  style={ styles.input } />
                     </CellItem>
                   </TableView>
-                  <TableView>
+                  <TableView style={ { backgroundColor: 'gray', paddingBottom: 20 } }>
                     <CellItem>
                       <Text style={ { flex: 1, fontSize: 16 } }>
                         线索等级
