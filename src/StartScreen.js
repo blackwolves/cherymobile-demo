@@ -16,6 +16,7 @@ class StartScreen extends Component {
     constructor(props) {
         super(props);
     }
+
     startDemoApp() {
         //alert(this.state.username+","+ this.state.password);
         this.props.dispatch(appActions.changeLoginStatus("demo-login"));
