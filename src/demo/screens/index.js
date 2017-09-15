@@ -20,6 +20,7 @@ import TopTabsScreen from './TopTabsScreen';
 import DropdownMenuScreen from './DropdownMenuScreen';
 import ContactScreen from './ContactScreen';
 import SCIScreen from './SCIScreen';
+import AnimationScreen from './AnimationScreen';
 
 import C4CModuleListScreen from './C4CModuleListScreen';
 import C4CContactScreen from './C4C/ContactScreen';
@@ -40,6 +41,7 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('demo.DropdownMenuScreen', () => DropdownMenuScreen, store, Provider);
     Navigation.registerComponent('demo.ContactScreen', () => ContactScreen, store, Provider);
     Navigation.registerComponent('demo.SCIScreen', () => SCIScreen, store, Provider);
+    Navigation.registerComponent('demo.AnimationScreen', () => AnimationScreen, store, Provider);
 
     Navigation.registerComponent('demo.FormScreen', () => FormScreen, store, Provider);
     Navigation.registerComponent('demo.SearchScreen', () => SearchScreen, store, Provider);

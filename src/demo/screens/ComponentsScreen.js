@@ -135,6 +135,12 @@ class ComponentsScreen extends React.Component {
             screen: 'demo.ContactScreen'
         });
     }
+    showAnimationPage = () => {
+        this.props.navigator.push({
+            title: 'Animation Page',
+            screen: 'demo.DemoAnimationScreen'
+        });
+    }
     render() {
         return (
             <ScrollView style={ styles.container }>
@@ -177,6 +183,9 @@ class ComponentsScreen extends React.Component {
               <Row
                    title={ 'Try Dial Page' }
                    onPress={ this.showContactPage } />
+              <Row
+                   title={ 'Animation Page' }
+                   onPress={ this.showAnimationPage } />
               { Platform.OS === 'android' ? <Row
                                                  title={ 'Show Snackbar' }
                                                  onPress={ this.onShowSnackbarPress.bind(this) } /> : false }
