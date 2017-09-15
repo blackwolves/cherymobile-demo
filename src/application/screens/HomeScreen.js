@@ -7,6 +7,9 @@ import * as appActions from '../../reducers/app/actions';
 import HomeItem from './components/HomeItem';
 
 class HomeScreen extends React.Component {
+    static navigatorStyle = {
+        navBarHidden: true
+    };
     constructor(props) {
         super(props);
     }
@@ -28,38 +31,43 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <View style={ styles.container }>
-              <Button
-                      isLoading={ false }
-                      style={ [styles.buttonContainer, { height: 40 }] }
-                      textStyle={ styles.textStyle6 }
-                      onPress={ this.performBack.bind(this) }>
-                返回
-              </Button>
-              <View style={ styles.base }>
-                <View style={ [styles.base, { flexDirection: 'column' }] }>
-                  <Text style={ styles.textNumber }>
-                    5
-                  </Text>
-                  <Text style={ styles.textStyle }>
-                    本月线索
-                  </Text>
-                </View>
-                <View style={ [styles.base, { flexDirection: 'column' }] }>
-                  <Text style={ styles.textNumber }>
-                    4
-                  </Text>
-                  <Text style={ styles.textStyle }>
-                    本月下订
-                  </Text>
-                </View>
-                <View style={ [styles.base, { flexDirection: 'column' }] }>
-                  <Text style={ styles.textNumber }>
-                    8
-                  </Text>
-                  <Text style={ styles.textStyle }>
-                    本月交车
-                  </Text>
-                </View>
+              <View style={ [styles.base, { height: 100 }] }>
+                <TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.navigateTo.bind(this, "month") }>
+                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                    <Text style={ styles.textNumber }>
+                      5
+                    </Text>
+                    <Text style={ styles.textStyle }>
+                      本月线索
+                    </Text>
+                  </View>
+                </TouchableHighlight>
+                <TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.navigateTo.bind(this, "month") }>
+                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                    <Text style={ styles.textNumber }>
+                      4
+                    </Text>
+                    <Text style={ styles.textStyle }>
+                      本月下订
+                    </Text>
+                  </View>
+                </TouchableHighlight>
+                <TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.navigateTo.bind(this, "month") }>
+                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                    <Text style={ styles.textNumber }>
+                      8
+                    </Text>
+                    <Text style={ styles.textStyle }>
+                      本月交车
+                    </Text>
+                  </View>
+                </TouchableHighlight>
               </View>
               <HomeItem
                         text="新增线索"
@@ -85,7 +93,7 @@ class HomeScreen extends React.Component {
                         text="待交车"
                         level="1"
                         iconName="key"
-                        onPressEvent={ this.navigateTo.bind(this, "month") } />
+                        onPressEvent={ this.performBack.bind(this) } />
             </View>
         );
     }
@@ -96,13 +104,16 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#ecf0f1'
     },
+    touchable: {
+        flex: 1
+    },
     base: {
         flex: 1,
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: 'white',
-        borderRadius: 10
+        borderRadius: 10,
     },
     buttonContainer: {
         height: 100,
