@@ -217,7 +217,9 @@ export default class App {
                             selectedIcon: require('../img/one_selected.png'),
                             title: '客户',
                             overrideBackPress: true,
-                            navigatorStyle: {}
+                            navigatorStyle: {
+                                navBarTitleTextCentered: true
+                            }
                         },
                         {
                             label: '我的',
@@ -226,7 +228,9 @@ export default class App {
                             selectedIcon: require('../img/one_selected.png'),
                             title: '我的',
                             overrideBackPress: true,
-                            navigatorStyle: {}
+                            navigatorStyle: {
+                                navBarTitleTextCentered: true
+                            }
                         }
                     ],
                     animationType: 'slide-down',

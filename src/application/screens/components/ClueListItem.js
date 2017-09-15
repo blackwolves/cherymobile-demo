@@ -29,6 +29,7 @@ class ClueListItem extends React.Component {
     render() {
         const lableList = this._createLabelList();
         return (<TouchableHighlight
+                                    key={ this.props.data.key }
                                     style={ styles.touchable }
                                     onPress={ this.props.onPressEvent }>
                   <View style={ [styles.base, styles.container] }>

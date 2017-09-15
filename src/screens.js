@@ -30,14 +30,15 @@ import DemoAnimationScreen from './demo/screens/AnimationScreen';
 import StartScreen from './StartScreen';
 import HomeScreen from './application/screens/HomeScreen';
 import CustomerListScreen from './application/screens/CustomerListScreen';
+import ChooseCustomer from './application/screens/ChooseCustomer';
+import CustomerDetails from './application/screens/CustomerDetails';
 
 import CluesScreen from './application/screens/CluesScreen';
 import CreateClueScreen from './application/screens/CreateClueScreen';
 import ClueDetailScreen from './application/screens/ClueDetailScreen';
-
 import UserProfileScreen from './application/screens/UserProfileScreen';
-
 import SelectModal from './application/screens/SelectModal';
+
 export function registerScreens(store, Provider) {
     Navigation.registerComponent('demo.LoginScreen', () => DemoLoginScreen, store, Provider);
     Navigation.registerComponent('demo.HomeScreen', () => DemoHomeScreen, store, Provider);
@@ -67,12 +68,11 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('start.StartScreen', () => StartScreen, store, Provider);
     Navigation.registerComponent('application.HomeScreen', () => HomeScreen, store, Provider);
     Navigation.registerComponent('application.CustomerListScreen', () => CustomerListScreen, store, Provider);
-
     Navigation.registerComponent('application.CluesScreen', () => CluesScreen, store, Provider);
     Navigation.registerComponent('application.CreateClueScreen', () => CreateClueScreen, store, Provider);
     Navigation.registerComponent('application.ClueDetailScreen', () => ClueDetailScreen, store, Provider);
-
     Navigation.registerComponent('application.SelectModal', () => SelectModal, store, Provider);
-
     Navigation.registerComponent('application.UserProfileScreen', () => UserProfileScreen, store, Provider);
+    Navigation.registerComponent('application.ChooseCustomer', () => ChooseCustomer, store, Provider);
+    Navigation.registerComponent('application.CustomerDetails', () => CustomerDetails, store, Provider);
 }
