@@ -137,6 +137,15 @@ export default class App {
                     appStyle: theme
                 });
                 return;
+            case 'demo-after-login-tabs':
+                Navigation.startSingleScreenApp({
+                    screen: {
+                        screen: 'demo.CustomizeBottomTabsScreen',
+                        title: '自定义底部Tabs页面',
+                        navigatorStyle: {}
+                    }
+                });
+                return;
             case 'application-home':
                 // this will start our app
                 Navigation.startTabBasedApp({
