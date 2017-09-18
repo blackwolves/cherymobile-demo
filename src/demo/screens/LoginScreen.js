@@ -82,6 +82,9 @@ class LoginScreen extends Component {
     performGetLoginUser() {
         this.props.dispatch(appActions.getLoginUser());
     }
+    performMockLoginWithCustomizeTab() {
+        this.props.dispatch(appActions.changeLoginStatus('demo-after-login-tabs', 'success'));
+    }
     performBack() {
         this.props.dispatch(appActions.changeLoginStatus('start', 'initial'));
     }
@@ -119,6 +122,13 @@ class LoginScreen extends Component {
                                textStyle={ styles.textStyle6 }
                                onPress={ this.performMockWithoutLogin.bind(this) }>
                          直接进入
+                       </Button>
+                       <Button
+                               isLoading={ loading }
+                               style={ styles.buttonContainer }
+                               textStyle={ styles.textStyle6 }
+                               onPress={ this.performMockLoginWithCustomizeTab.bind(this) }>
+                         个性化底部Tab页面
                        </Button>
                        <Button
                                isLoading={ loading }
