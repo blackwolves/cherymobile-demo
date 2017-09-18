@@ -9,8 +9,8 @@ const POS_HALF_SCREEN_Y = 200 / 2 - 50;
 
 const {UIManager} = NativeModules;
 
-UIManager.setLayoutAnimationEnabledExperimental &&
-UIManager.setLayoutAnimationEnabledExperimental(true);
+UIManager.setLayoutAnimationEnabledExperimental
+&& UIManager.setLayoutAnimationEnabledExperimental(true);
 
 class AnimationScreen extends React.Component {
     static navigatorStyle = {
@@ -35,7 +35,6 @@ class AnimationScreen extends React.Component {
             showDeleteIcon: new Animated.Value(0)
         };
     }
-    componentDidMount() {}
     clickOnBtn = () => {
         Animated.sequence([
             Animated.stagger(100, [
@@ -135,12 +134,11 @@ class AnimationScreen extends React.Component {
                   <Animated.View style={ [{ top: this.state.topAnim, left: this.state.leftAnim, transform: [{ scaleX: this.state.scaleX }, { scaleY: this.state.scaleY }] }, { position: 'absolute' }] }>
                     <TouchableOpacity
                                       onPress={ () => this.clickOnBtn() }
-                                      style={ { width: 100, height: 100, alignItems: 'center', justifyContent: 'center', backgroundColor: '#449d44', borderRadius: this.state.borderRadius } }>
-                    </TouchableOpacity>
+                                      style={ { width: 100, height: 100, alignItems: 'center', justifyContent: 'center', backgroundColor: '#449d44', borderRadius: this.state.borderRadius } } />
                   </Animated.View>
                   <TouchableOpacity style={ { position: 'absolute', width: 100, height: 100, alignItems: 'center', top: POS_HALF_SCREEN_Y, left: POS_HALF_SCREEN_X, justifyContent: 'center', borderRadius: 50 } }>
                     <Animated.Image
-                                    ref='image'
+                                    ref="image"
                                     source={ require('../../../img/navicon_menu@2x.png') }
                                     size={ 100 }
                                     style={ { width: 100, height: 100, opacity: this.state.showMenuIcon, transform: [{ rotate: this.state.rotateValue.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '720deg'] }) }] } }
@@ -150,7 +148,7 @@ class AnimationScreen extends React.Component {
                                     onPress={ () => this.clickOnDeleteBtn() }
                                     style={ { position: 'absolute', width: 100, height: 100, alignItems: 'center', top: POS_HALF_SCREEN_Y, left: POS_HALF_SCREEN_X, justifyContent: 'center', borderRadius: 50 } }>
                     <Animated.Image
-                                    ref='image'
+                                    ref="image"
                                     source={ require('../../../img/deletex.png') }
                                     style={ { opacity: this.state.showDeleteIcon, width: 100, height: 100 } }
                                     size={ 100 }
@@ -163,12 +161,6 @@ class AnimationScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1
-    },
-    button: {
-        width: 50,
-        height: 50,
-        backgroundColor: '#449d44',
-        borderRadius: 50
     }
 });
 export default AnimationScreen;

@@ -3,8 +3,8 @@ import { View, Text, ScrollView, TouchableHighlight, StyleSheet, Modal, Switch }
 import { connect } from 'react-redux';
 import * as appActions from '../../reducers/app/actions';
 
-import Icon from 'react-native-vector-icons/FontAwesome'
-import { Dimensions } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Dimensions } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import TabBar from 'react-native-xtabbar';
 import Button from 'apsl-react-native-button';
@@ -17,7 +17,7 @@ class DemoCustomizeTabsScreen extends React.Component {
             animationType: 'none',
             modalVisible: false,
             transparent: false
-        }
+        };
     //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
     componentDidMount() {
@@ -76,19 +76,6 @@ class DemoCustomizeTabsScreen extends React.Component {
     }
 
     render() {
-        var modalBackgroundStyle = {
-            backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
-        };
-        var innerContainerTransparentStyle = this.state.transparent
-            ? {
-                backgroundColor: '#fff',
-                padding: 20
-            }
-            : null;
-        var activeButtonStyle = {
-            backgroundColor: '#ddd'
-        };
-
         return (
             <View style={ styles.container }>
               <TabBar
@@ -103,7 +90,7 @@ class DemoCustomizeTabsScreen extends React.Component {
                                            // do sth
                                        } }
                              badge={ 7 }
-                             title='首页'>
+                             title="首页">
                   <View>
                     <Text style={ { fontSize: 18 } }>
                       首页
@@ -113,7 +100,7 @@ class DemoCustomizeTabsScreen extends React.Component {
                 <TabBar.Item
                              icon={ require('../../../img/two.png') }
                              selectedIcon={ require('../../../img/two.png') }
-                             title='线索'>
+                             title="线索">
                   <View style={ styles.text }>
                     <Text style={ { fontSize: 18 } }>
                       线索
@@ -123,14 +110,13 @@ class DemoCustomizeTabsScreen extends React.Component {
                 <TabBar.Item
                              icon={ require('../../../img/navicon_add.png') }
                              selectedIcon={ require('../../../img/navicon_add.png') }
-                             title=''>
-                  <View style={ styles.text }>
-                  </View>
+                             title="">
+                  <View style={ styles.text } />
                 </TabBar.Item>
                 <TabBar.Item
                              icon={ require('../../../img/three.png') }
                              selectedIcon={ require('../../../img/three.png') }
-                             title='客户'>
+                             title="客户">
                   <View style={ styles.text }>
                     <Text style={ { fontSize: 18 } }>
                       客户
@@ -140,7 +126,7 @@ class DemoCustomizeTabsScreen extends React.Component {
                 <TabBar.Item
                              icon={ require('../../../img/one.png') }
                              selectedIcon={ require('../../../img/one.png') }
-                             title='我的'>
+                             title="我的">
                   <View style={ styles.text }>
                     <Text style={ { fontSize: 18 } }>
                       我的
@@ -158,7 +144,7 @@ class DemoCustomizeTabsScreen extends React.Component {
                      transparent={ this.state.transparent }
                      visible={ this.state.modalVisible }
                      onRequestClose={ () => {
-                                          this._setModalVisible(false)
+                                          this._setModalVisible(false);
                                       } }>
                 <View style={ [styles.container] }>
                   <View style={ [styles.innerContainer] }>
@@ -180,38 +166,11 @@ const styles = StyleSheet.create({
         flex: 1
     },
     content: {
-        flex: 1,
+        flex: 1
     },
     innerContainer: {
         borderRadius: 10,
-        alignItems: 'center',
-    },
-    row: {
-        alignItems: 'center',
-        flex: 1,
-        flexDirection: 'row',
-        marginBottom: 20
-    },
-    rowTitle: {
-        flex: 1,
-        fontWeight: 'bold',
-    },
-    button: {
-        borderRadius: 5,
-        flex: 1,
-        height: 44,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        overflow: 'hidden',
-    },
-    buttonText: {
-        fontSize: 18,
-        margin: 5,
-        textAlign: 'center',
-    },
-    modalButton: {
-        marginTop: 10,
-        backgroundColor: 'blue'
+        alignItems: 'center'
     },
     buttonContainer: {
         marginTop: 20,
