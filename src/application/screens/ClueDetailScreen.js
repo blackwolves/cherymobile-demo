@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Dimensions } from 'react-native';
 import ScrollableTabView, { DefaultTabBar, ScrollableTabBar } from 'react-native-scrollable-tab-view';
 
-
 class ClueDetailScreen extends React.Component {
     static navigatorStyle = {
         tabBarHidden: true
@@ -38,9 +37,6 @@ class ClueDetailScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
     tabView: {
         flex: 1,
         padding: 10,

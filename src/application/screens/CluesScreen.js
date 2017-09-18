@@ -10,7 +10,6 @@ import DropdownMenu from './components/DropdownMenu';
 const DEVICE_WIDTH = Dimensions.get(`window`).width;
 
 class CluesScreen extends React.Component {
-
     static navigatorButtons = {
         leftButtons: [
             {

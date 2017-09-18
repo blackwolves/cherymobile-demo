@@ -113,23 +113,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: 'white',
-        borderRadius: 10,
-    },
-    buttonContainer: {
-        height: 100,
-        width: "33%",
-        backgroundColor: '#227622',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderColor: '#227622',
-
-        borderWidth: 1
-    },
-    textStyle6: {
-        textAlign: 'center',
-        color: '#FFF',
-        fontSize: 15,
-        fontWeight: 'bold'
+        borderRadius: 10
     },
     textStyle: {
         textAlign: 'center',

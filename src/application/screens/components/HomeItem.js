@@ -62,11 +62,6 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white'
     },
-    labelsContainer: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        marginTop: 5
-    },
     leftContainer: {
         width: '80%',
         justifyContent: 'flex-start',
@@ -75,7 +70,7 @@ const styles = StyleSheet.create({
     },
     rightContainer: {
         width: '20%',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-end'
     },
     title: {
         fontWeight: 'bold',
