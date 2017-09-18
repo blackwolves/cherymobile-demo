@@ -26,6 +26,7 @@ import DemoC4CContactScreen from './demo/screens/C4C/ContactScreen';
 import DemoC4CLeadScreen from './demo/screens/C4C/LeadScreen';
 import DemoAnimationScreen from './demo/screens/AnimationScreen';
 import DemoCustomizeTabsScreen from './demo/screens/DemoCustomizeTabsScreen';
+import DemoCameraScreen from './demo/screens/CameraScreen';
 
 //Development Screen
 import StartScreen from './StartScreen';
@@ -66,6 +67,7 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('demo.C4C.LeadScreen', () => DemoC4CLeadScreen, store, Provider);
     Navigation.registerComponent('demo.DemoAnimationScreen', () => DemoAnimationScreen, store, Provider);
     Navigation.registerComponent('demo.CustomizeBottomTabsScreen', () => DemoCustomizeTabsScreen, store, Provider);
+    Navigation.registerComponent('demo.CameraScreen', () => DemoCameraScreen, store, Provider);
 
     Navigation.registerComponent('start.StartScreen', () => StartScreen, store, Provider);
     Navigation.registerComponent('application.HomeScreen', () => HomeScreen, store, Provider);

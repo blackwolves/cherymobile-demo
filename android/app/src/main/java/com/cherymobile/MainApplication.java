@@ -15,6 +15,7 @@ import com.pritesh.calldetection.CallDetectionManager;
 import com.getui.reactnativegetui.GetuiModule;
 import com.getui.reactnativegetui.GetuiPackage;
 import com.psykar.cookiemanager.CookieManagerPackage;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
 
 public class MainApplication extends NavigationApplication {
 
@@ -29,6 +30,7 @@ public class MainApplication extends NavigationApplication {
          // No need to add RnnPackage and MainReactPackage
          return Arrays.<ReactPackage>asList(
             //new MainReactPackage(),
+            new RCTCameraPackage(),
             new CookieManagerPackage(),
             new GetuiPackage(),
             new RNNotificationsPackage(MainApplication.this),

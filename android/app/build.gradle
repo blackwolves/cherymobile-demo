@@ -92,6 +92,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         manifestPlaceholders = [
             GETUI_APP_ID : "3E0Y6cOcHV62qvls6ZrD67",
             GETUI_APP_KEY : "2Yy0BxkUmK6pCKGUzWKtV5",
@@ -140,6 +141,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-camera')
     compile project(':react-native-cookies')
     compile project(':react-native-getui')
     compile project(':react-native-notifications')

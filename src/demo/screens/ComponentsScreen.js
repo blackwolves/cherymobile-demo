@@ -86,6 +86,12 @@ class ComponentsScreen extends React.Component {
             screen: 'demo.SignatureScreen'
         });
     }
+    showCameraPage = () => {
+        this.props.navigator.push({
+            title: 'Camera Page',
+            screen: 'demo.CameraScreen'
+        });
+    }
     showSearchPage = () => {
         if (Platform.OS === 'android') {
             this.props.navigator.showModal({
@@ -186,6 +192,9 @@ class ComponentsScreen extends React.Component {
               <Row
                    title={ 'Animation Page' }
                    onPress={ this.showAnimationPage } />
+              <Row
+                   title={ 'Camera Page' }
+                   onPress={ this.showCameraPage } />
               { Platform.OS === 'android' ? <Row
                                                  title={ 'Show Snackbar' }
                                                  onPress={ this.onShowSnackbarPress.bind(this) } /> : false }
