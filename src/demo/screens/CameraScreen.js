@@ -17,7 +17,7 @@ class CameraScreen extends Component {
                 captureTarget: Camera.constants.CaptureTarget.cameraRoll,
                 type: Camera.constants.Type.back,
                 orientation: Camera.constants.Orientation.auto,
-                flashMode: Camera.constants.FlashMode.auto,
+                flashMode: Camera.constants.FlashMode.auto
             },
             isRecording: false
         };
@@ -65,8 +65,8 @@ class CameraScreen extends Component {
         this.setState({
             camera: {
                 ...this.state.camera,
-                type: newType,
-            },
+                type: newType
+            }
         });
     }
 
@@ -98,8 +98,8 @@ class CameraScreen extends Component {
         this.setState({
             camera: {
                 ...this.state.camera,
-                flashMode: newFlashMode,
-            },
+                flashMode: newFlashMode
+            }
         });
     }
 
@@ -121,8 +121,8 @@ class CameraScreen extends Component {
         return (
             <View style={ styles.container }>
               <StatusBar
-                         animated
-                         hidden />
+                         animated={ true }
+                         hidden={ true } />
               <Camera
                       ref={ (cam) => {
                                 this.camera = cam;
@@ -132,11 +132,7 @@ class CameraScreen extends Component {
                       captureTarget={ this.state.camera.captureTarget }
                       type={ this.state.camera.type }
                       flashMode={ this.state.camera.flashMode }
-                      onFocusChanged={ () => {
-                                       } }
-                      onZoomChanged={ () => {
-                                      } }
-                      defaultTouchToFocus
+                      defaultTouchToFocus={ true }
                       mirrorImage={ false } />
               <View style={ [styles.overlay, styles.topOverlay] }>
                 <TouchableOpacity
@@ -152,28 +148,23 @@ class CameraScreen extends Component {
               </View>
               <View style={ [styles.overlay, styles.bottomOverlay] }>
                 { !this.state.isRecording
-                  &&
-                  <TouchableOpacity
-                                    style={ styles.captureButton }
-                                    onPress={ this.takePicture }>
-                    <Image source={ require('../../../img/ic_photo_camera_36pt.png') } />
-                  </TouchableOpacity>
-                  ||
-                  null }
+                  && <TouchableOpacity
+                                       style={ styles.captureButton }
+                                       onPress={ this.takePicture }>
+                       <Image source={ require('../../../img/ic_photo_camera_36pt.png') } />
+                     </TouchableOpacity> || null }
                 <View style={ styles.buttonsSpace } />
                 { !this.state.isRecording
-                  &&
-                  <TouchableOpacity
-                                    style={ styles.captureButton }
-                                    onPress={ this.startRecording }>
-                    <Image source={ require('../../../img/ic_videocam_36pt.png') } />
-                  </TouchableOpacity>
-                  ||
-                  <TouchableOpacity
-                                    style={ styles.captureButton }
-                                    onPress={ this.stopRecording }>
-                    <Image source={ require('../../../img/ic_stop_36pt.png') } />
-                  </TouchableOpacity> }
+                  && <TouchableOpacity
+                                       style={ styles.captureButton }
+                                       onPress={ this.startRecording }>
+                       <Image source={ require('../../../img/ic_videocam_36pt.png') } />
+                     </TouchableOpacity>
+                  || <TouchableOpacity
+                                       style={ styles.captureButton }
+                                       onPress={ this.stopRecording }>
+                       <Image source={ require('../../../img/ic_stop_36pt.png') } />
+                     </TouchableOpacity> }
               </View>
             </View>
             );
@@ -189,42 +180,42 @@ const styles = StyleSheet.create({
     preview: {
         flex: 1,
         justifyContent: 'flex-end',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     overlay: {
         position: 'absolute',
         padding: 16,
         right: 0,
         left: 0,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     topOverlay: {
         top: 0,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     bottomOverlay: {
         bottom: 0,
         backgroundColor: 'rgba(0,0,0,0.4)',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     captureButton: {
         padding: 15,
         backgroundColor: 'white',
-        borderRadius: 40,
+        borderRadius: 40
     },
     typeButton: {
-        padding: 5,
+        padding: 5
     },
     flashButton: {
-        padding: 5,
+        padding: 5
     },
     buttonsSpace: {
-        width: 10,
+        width: 10
     }
 });
 
