@@ -16,7 +16,7 @@ class RightArrow extends React.Component {
                              color="gray"
                              onPress={ this.props.onPressEvent }>
                   <Text style={ { fontFamily: 'Arial', fontSize: 15 } }>
-                    请选择
+                    { this.props.text ? this.props.text : '请选择' }
                   </Text>
                 </Icon.Button>);
     }

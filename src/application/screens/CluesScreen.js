@@ -11,17 +11,6 @@ const DEVICE_WIDTH = Dimensions.get(`window`).width;
 
 class CluesScreen extends React.Component {
     static navigatorButtons = {
-        leftButtons: [
-            {
-                title: '搜索',
-                id: 'search',
-                disableIconTint: true,
-                buttonColor: 'blue',
-                buttonFontSize: 14,
-                showAsAction: 'ifRoom',
-                buttonFontWeight: '600'
-            }
-        ],
         rightButtons: [
             {
                 title: '创建',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableHighlight, Platform, StyleSheet } from 'react-native';
 import Button from 'apsl-react-native-button';
 import { connect } from 'react-redux';
 import * as appActions from '../../reducers/app/actions';
@@ -31,43 +31,45 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <View style={ styles.container }>
-              <View style={ [styles.base, { height: 100 }] }>
-                <TouchableHighlight
-                                    style={ styles.touchable }
-                                    onPress={ this.navigateTo.bind(this, "month") }>
-                  <View style={ [styles.base, { flexDirection: 'column' }] }>
-                    <Text style={ styles.textNumber }>
-                      5
-                    </Text>
-                    <Text style={ styles.textStyle }>
-                      本月线索
-                    </Text>
-                  </View>
-                </TouchableHighlight>
-                <TouchableHighlight
-                                    style={ styles.touchable }
-                                    onPress={ this.navigateTo.bind(this, "month") }>
-                  <View style={ [styles.base, { flexDirection: 'column' }] }>
-                    <Text style={ styles.textNumber }>
-                      4
-                    </Text>
-                    <Text style={ styles.textStyle }>
-                      本月下订
-                    </Text>
-                  </View>
-                </TouchableHighlight>
-                <TouchableHighlight
-                                    style={ styles.touchable }
-                                    onPress={ this.navigateTo.bind(this, "month") }>
-                  <View style={ [styles.base, { flexDirection: 'column' }] }>
-                    <Text style={ styles.textNumber }>
-                      8
-                    </Text>
-                    <Text style={ styles.textStyle }>
-                      本月交车
-                    </Text>
-                  </View>
-                </TouchableHighlight>
+              <View style={ [styles.base, { backgroundColor: 'lightgray', marginBottom: 20 }] }>
+                <View style={ [styles.base, { height: '70%', bottom: -30, overflow: 'visible' }] }>
+                  <TouchableHighlight
+                                      style={ styles.touchable }
+                                      onPress={ this.navigateTo.bind(this, "month") }>
+                    <View style={ [styles.base, { flexDirection: 'column' }] }>
+                      <Text style={ styles.textNumber }>
+                        5
+                      </Text>
+                      <Text style={ styles.textStyle }>
+                        本月线索
+                      </Text>
+                    </View>
+                  </TouchableHighlight>
+                  <TouchableHighlight
+                                      style={ styles.touchable }
+                                      onPress={ this.navigateTo.bind(this, "month") }>
+                    <View style={ [styles.base, { flexDirection: 'column' }] }>
+                      <Text style={ styles.textNumber }>
+                        4
+                      </Text>
+                      <Text style={ styles.textStyle }>
+                        本月下订
+                      </Text>
+                    </View>
+                  </TouchableHighlight>
+                  <TouchableHighlight
+                                      style={ styles.touchable }
+                                      onPress={ this.navigateTo.bind(this, "month") }>
+                    <View style={ [styles.base, { flexDirection: 'column' }] }>
+                      <Text style={ styles.textNumber }>
+                        8
+                      </Text>
+                      <Text style={ styles.textStyle }>
+                        本月交车
+                      </Text>
+                    </View>
+                  </TouchableHighlight>
+                </View>
               </View>
               <HomeItem
                         text="新增线索"

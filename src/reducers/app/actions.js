@@ -5,7 +5,7 @@ import * as Constants from '../../lib/Constants';
 
 export function appInitialized() {
     return async function(dispatch, getState) {
-        dispatch(changeLoginStatus('start'));
+        dispatch(changeLoginStatus('application-home'));
     };
 }
 

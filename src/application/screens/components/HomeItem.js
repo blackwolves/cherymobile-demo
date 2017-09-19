@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     touchable: {
         width: '100%',
         height: 80,
-        padding: 5,
+        margin: 5,
         backgroundColor: '#ecf0f1'
     },
     icon: {
