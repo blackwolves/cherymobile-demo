@@ -28,17 +28,27 @@ class ChooseCustomer extends React.Component {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
-        const Checked = [];
-        const i = 3;
-        let j = 0;
-        while (j < i) {
-            Checked.push(false);
-            j++;
-        }
         this.state = {
             dataSource: ds,
-            data: ['王先生', '张小姐', '欧阳女士'],
-            isChecked: Checked,
+            customer: [{
+                name: "李红",
+                sex: '女士',
+                tel: "12345678901",
+                model: '瑞虎7 1.5T 手动耀尊版',
+                type: '询价',
+                date: '2017.03.22',
+                status: '未联系',
+                isChecked: false
+            }, {
+                name: "李佳",
+                sex: '先生',
+                tel: "18280014326",
+                model: '瑞虎5 1.5T CVT尊贵版',
+                type: '询价',
+                date: '2017.03.19',
+                status: '未联系',
+                isChecked: false
+            }],
             num: 0
         };
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
@@ -65,22 +75,39 @@ class ChooseCustomer extends React.Component {
     };
 
     nextStep = () => {
-        alert("next");
+        const phone = [];
+        for (let i = 0; i < this.state.customer.length; i++) {
+            if (this.state.customer[i].isChecked === true) {
+                phone.push(this.state.customer[i].tel);
+            }
+        }
+        this.props.navigator.push({
+            screen: 'application.SendMessageScreen',
+            title: '发短信给客户',
+            passProps: {phone},
+            navigatorStyle: {
+                tabBarHidden: true,
+                navBarBackgroundColor: 'white',
+                tabBarBackgroundColor: 'white',
+                navBarTitleTextCentered: true
+            }
+        });
     };
+
     onClick = (rowId) => {
-        const Checked = this.state.isChecked;
-        Checked[rowId] = !Checked[rowId];
+        const customer = this.state.customer;
+        customer[rowId].isChecked = !customer[rowId].isChecked;
         this.setState({
-            isChecked: Checked
+            customer: customer
         });
         this.updateNum();
     };
 
     updateNum = () => {
-        const Checked = this.state.isChecked;
+        const customer = this.state.customer;
         let num = 0;
-        Checked.forEach(function(e) {
-            if (e === true) {
+        customer.forEach(function(e) {
+            if (e.isChecked === true) {
                 num++;
             }
         });
@@ -100,7 +127,7 @@ class ChooseCustomer extends React.Component {
                 </View>
                 <View>
                     <ListView
-                        dataSource={this.state.dataSource.cloneWithRows(this.state.data)}
+                        dataSource={this.state.dataSource.cloneWithRows(this.state.customer)}
                         renderRow={(rowData, sectionId, rowId) => this._renderRow(rowData, sectionId, rowId)}/>
                 </View>
             </ScrollView>
@@ -112,7 +139,7 @@ class ChooseCustomer extends React.Component {
             <CheckBox
                 style={styles.checkbox}
                 onClick={() => this.onClick(rowId)}
-                isChecked={this.state.isChecked[rowId]}
+                isChecked={this.state.customer[rowId].isChecked}
             />);
     }
 
@@ -128,7 +155,7 @@ class ChooseCustomer extends React.Component {
     _renderRow(rowData, sectionId, rowId) {
         return (
             <TouchableOpacity activeOpacity={0.5} style={styles.row} onPress={() => this.onClick(rowId)}>
-                {this._renderCustomer(rowData)}
+                {this._renderCustomer(rowData.name)}
                 {this._renderCheckBox(rowId)}
             </TouchableOpacity>
         );
