@@ -30,6 +30,21 @@ class CustomerListScreen extends React.Component {
             data: ['王先生', '欧阳先生', '李先生', '欧小姐', '王先生', '王先生', '王先生', '王先生']
         };
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+        this.navigateTo = this.navigateTo.bind(this);
+    }
+
+    navigateTo(type){
+        switch(type){
+            case 'CreateNewClient' : 
+                    this.props.navigator.push({
+                        screen: 'application.CreateNewClient',
+                        title: '创建客户',
+                        navigatorStyle: {
+                            navBarTitleTextCentered: true
+                        }
+                    });
+                    break;
+        };
     }
 
     onNavigatorEvent(event) {
@@ -63,7 +78,7 @@ class CustomerListScreen extends React.Component {
         alert("search");
     };
     createCustomer = () => {
-        alert("create");
+        this.navigateTo("CreateNewClient")
     };
 
     render() {
