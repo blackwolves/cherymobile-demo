@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 		justifyContent:'center',
 		//boxSizing:'content-box',
 		borderBottomWidth: 1,
-		borderBottomColor: 'grey',
+		borderBottomColor: '#E2D9D9',
 		marginLeft:10
 	},
 	left:{

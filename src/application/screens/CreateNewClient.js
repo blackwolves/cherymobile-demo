@@ -48,11 +48,15 @@ class CreateNewClient extends React.Component {
 		Alert.alert('you have just press the '+ _this.props.label);
 	}
 
+	scanBusniessCard(){
+		Alert.alert('scan the business card !')
+	}
+
 	render() {
 		return ( 
 			<ScrollView>
 				<View style={styles.container}>
-					<ScanBusinessCard text="快速扫描名片自动添加以下部分信息" iconLeft="camera" iconRight="angle-right" />
+					<ScanBusinessCard text="快速扫描名片自动添加以下部分信息" iconLeft="camera" iconRight="angle-right" onPress={this.scanBusniessCard} />
 					<FormList>
 						<FromListItem type="input" label="客户姓名*" placeholder="请填写" />
 						<FromListItem type="input" label="联系电话*" placeholder="请填写" />

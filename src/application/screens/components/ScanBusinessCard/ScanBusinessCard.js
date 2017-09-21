@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableHighlight} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PropTypes from 'prop-types';
 
@@ -10,17 +10,19 @@ class ScanBusinessCard extends React.Component{
 
 	render(){
 		return(
-			<View style={styles.container}>
-				<View style={styles.iconLeft}>
-					<Icon name={this.props.iconLeft} size={20} color="red" style={{marginRight:10,marginLeft:10}}/>
-				</View>
-				<View style={styles.text}>
-					<Text style={{fontSize:14,color:'red'}}>{this.props.text}</Text>
-				</View>
-				<View style={styles.iconRight}>
-					<Icon name={this.props.iconRight} size={20} color="red" style={{marginRight:10,marginLeft:10}}/>
-				</View>
-			</View>
+			<TouchableHighlight style={styles.container} underlayColor="white" onPress={this.props.onPress.bind(this)}>
+				<View style={{flexDirection:'row',flex:1}}>
+					<View style={styles.iconLeft}>
+						<Icon name={this.props.iconLeft} size={20} color="red" style={{marginRight:10,marginLeft:10}}/>
+					</View>
+					<View style={styles.text}>
+						<Text style={{fontSize:14,color:'red'}}>{this.props.text}</Text>
+					</View>
+					<View style={styles.iconRight}>
+						<Icon name={this.props.iconRight} size={20} color="red" style={{marginRight:10,marginLeft:10}}/>
+					</View>
+				</View>				
+			</TouchableHighlight>
 			);
 	}
 }
@@ -54,7 +56,8 @@ const styles = StyleSheet.create({
 ScanBusinessCard.PropTypes = {
 	text: PropTypes.string,
 	iconLeft: PropTypes.string,
-	iconRight: PropTypes.string
+	iconRight: PropTypes.string,
+	onPress: PropTypes.func
 };
 
 export default ScanBusinessCard;
