@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
 	},
 	right:{
 		flex:1,
+		marginLeft:50,
 		flexDirection:'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center'

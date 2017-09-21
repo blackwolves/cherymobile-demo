@@ -6,7 +6,8 @@ import {
     Dimensions,
     StyleSheet,
     Linking,
-    ListView
+    ListView,
+    Alert
 } from 'react-native';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -15,6 +16,7 @@ import {TableView, CellItem} from './components/tableview';
 import RightArrow from './components/RightArrow';
 import styles from '../styles/ListScreenStyle';
 import {connect} from 'react-redux';
+import {List, ListItem} from './components/List';
 
 const {width} = Dimensions.get('window');
 
@@ -32,14 +34,14 @@ class CustomerDetails extends React.Component {
 
     constructor(props) {
         super(props);
-        this._dataSource = new ListView.DataSource({
+        const _dataSource = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
         const dataList = [];
         const addNum = 10;
         for (let i = 0; i < addNum; i++) {
             dataList.push({
-                key: "${i}",
+                key: `${i}`,
                 text: `购车询价-${i}`,
                 labels: [{text: "新增"}, {text: "多次到店"}],
                 level: "C级",
@@ -48,10 +50,13 @@ class CustomerDetails extends React.Component {
         }
         this.state = {
             dataList: dataList,
-            dataSource: this._dataSource.cloneWithRows(dataList)
+            dataSource: _dataSource.cloneWithRows(dataList)
         };
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
         this.name = this.props.rowData;
+        this._renderRow = this._renderRow.bind(this);
+        this._renderCusProfile = this._renderCusProfile.bind(this);
+        this.navigateToDetail = this.navigateToDetail.bind(this);
     }
 
     onNavigatorEvent(event) {
@@ -64,19 +69,23 @@ class CustomerDetails extends React.Component {
         }
     }
 
-    callCustomer = () => {
+    callCustomer(){
         Linking.openURL('tel:18280014326')
             .catch(err => {
                 console.log(err);
             });
     };
-    navigateToDetail = (event, rowData) => {
+    navigateToDetail(event, rowData) {
         this.props.navigator.push({
             screen: 'application.ClueDetailScreen',
             title: rowData.text,
             passProps: {}
         });
     };
+
+    handlePress(){
+        Alert.alert('you have just press the '+ this.props.label);
+    }
 
     _renderUser() {
         return (
@@ -113,33 +122,7 @@ class CustomerDetails extends React.Component {
         );
     }
 
-    render() {
-        return (
-            <ScrollView>
-                {this._renderUser()}
-                <ScrollableTabView
-                    tabBarActiveTextColor="red"
-                    tabBarUnderlineStyle={{backgroundColor: 'red'}}
-                    initialPage={0}
-                    renderTabBar={() => <DefaultTabBar textStyle={Styles.tabText}/>}>
-                    <ScrollView
-                        tabLabel="线索"
-                        style={Styles.tabView}
-                        dataSource={this.state.dataSource}
-                        renderRow={this._renderRow}>
-                        <ListView dataSource={this.state.dataSource}
-                                  renderRow={this._renderRow}/>
-                    </ScrollView>
-                    <ScrollView
-                        tabLabel="客户档案">
-                        {this._renderCusProfile()}
-                    </ScrollView>
-                </ScrollableTabView>
-            </ScrollView>
-        );
-    }
-
-    _renderRow = (rowData, sectionID, rowID) => {
+    _renderRow(rowData, sectionID, rowID) {
         return (
             <View style={styles.thumbnail}>
                 <ClueListItem style={styles.textContainer} data={rowData}
@@ -150,56 +133,42 @@ class CustomerDetails extends React.Component {
 
     _renderCusProfile() {
         return (
-            <TableView>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        客户姓名
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('线索等级')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        联系电话
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('线索来源')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        性别
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('意向车型')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        出生日期
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('付款方式')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        居住地址
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('购车用途')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        客户来源
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('购买类型')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        身份证号码
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('购买类型')}/>
-                </CellItem>
-                <CellItem>
-                    <Text style={{flex: 1, fontSize: 16}}>
-                        保有车型
-                    </Text>
-                    <RightArrow onPressEvent={() => this.openSelectPanel('购买类型')}/>
-                </CellItem>
-            </TableView>
+            <List>
+                <ListItem type="Select" label="客户姓名" placeholder="王先生" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="联系电话" placeholder="123456789" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="性别" placeholder="男" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="出生日期" placeholder="1993-2-3" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="居住地址" placeholder="四川省成都市武侯区新华南路一号" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="客户来源" placeholder="车站" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="身份证号码" placeholder="暂无" icon="angle-right" onPress={this.handlePress}/>
+                <ListItem type="Select" label="保有车型" placeholder="暂无" icon="angle-right" onPress={this.handlePress}/>
+            </List>
+        );
+    }
+
+    render() {
+        return (
+            <View style={{flexDirection:'column',flex:1}}>
+                {this._renderUser()}
+                <View style={{flex:1}}>
+                    <ScrollableTabView
+                        tabBarActiveTextColor="red"
+                        tabBarUnderlineStyle={{backgroundColor: 'red'}}
+                        initialPage={0}
+                        renderTabBar={() => <DefaultTabBar textStyle={Styles.tabText}/>}>
+                        <ScrollView
+                            tabLabel="线索"
+                            style={Styles.tabView}>
+                            <ListView dataSource={this.state.dataSource}
+                                      renderRow={this._renderRow}/>
+                        </ScrollView>
+                        <ScrollView
+                            tabLabel="客户档案">
+                            {this._renderCusProfile()}
+                        </ScrollView>
+                    </ScrollableTabView>                    
+                </View>
+            </View>
         );
     }
 }
