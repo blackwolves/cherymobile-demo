@@ -6,7 +6,7 @@ import {
 	StyleSheet,
 	Alert
 } from 'react-native';
-import {FormList, FormListItem} from './components/FormList';
+import {List, ListItem} from './components/List';
 import {ScanBusinessCard} from './components/ScanBusinessCard';
 
 class CreateNewClient extends React.Component {
@@ -56,16 +56,16 @@ class CreateNewClient extends React.Component {
 			<ScrollView>
 				<View style={styles.container}>
 					<ScanBusinessCard text="快速扫描名片自动添加以下部分信息" iconLeft="camera" iconRight="angle-right" onPress={this.scanBusniessCard} />
-					<FormList>
-						<FormListItem type="input" label="客户姓名*" placeholder="请填写" />
-						<FormListItem type="input" label="联系电话*" placeholder="请填写" />
-						<FormListItem type="select" label="性别*" placeholder="请选择" icon="angle-right" onPress={this.handlePress}/>
-						<FormListItem type="select" label="出生日期" placeholder="请选择" icon="angle-right" onPress={this.handlePress}/>
-						<FormListItem type="input" label="居住地址" placeholder="请填写" />
-						<FormListItem type="select" label="客户来源" placeholder="请选择" icon="angle-right" onPress={this.handlePress}/>
-						<FormListItem type="select" label="身份证号码" placeholder="暂无" icon="angle-right" onPress={this.handlePress}/>
-						<FormListItem type="select" label="保有车型" placeholder="暂无" icon="angle-right" onPress={this.handlePress}/>
-					</FormList>					
+					<List>
+						<ListItem type="Input" label="客户姓名*" placeholder="请填写" />
+						<ListItem type="Input" label="联系电话*" placeholder="请填写" />
+						<ListItem type="Select" label="性别*" placeholder="请选择" icon="angle-right" onPress={this.handlePress}/>
+						<ListItem type="Select" label="出生日期" placeholder="请选择" icon="angle-right" onPress={this.handlePress}/>
+						<ListItem type="Input" label="居住地址" placeholder="请填写" />
+						<ListItem type="Select" label="客户来源" placeholder="请选择" icon="angle-right" onPress={this.handlePress}/>
+						<ListItem type="Select" label="身份证号码" placeholder="暂无" icon="angle-right" onPress={this.handlePress}/>
+						<ListItem type="Select" label="保有车型" placeholder="暂无" icon="angle-right" onPress={this.handlePress}/>
+					</List>					
 				</View>				
 			</ScrollView>
 		);

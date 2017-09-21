@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-class FormList extends React.Component{
+class List extends React.Component{
 	constructor(props){
 		super(props);
 	}
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default FormList;
+export default List;

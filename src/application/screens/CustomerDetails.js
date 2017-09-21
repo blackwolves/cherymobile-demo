@@ -14,6 +14,7 @@ import ClueListItem from './components/ClueListItem';
 import {TableView, CellItem} from './components/tableview';
 import RightArrow from './components/RightArrow';
 import styles from '../styles/ListScreenStyle';
+import {connect} from 'react-redux';
 
 const {width} = Dimensions.get('window');
 
@@ -232,4 +233,4 @@ const Styles = StyleSheet.create({
     }
 });
 
-export default CustomerDetails;
+export default connect()(CustomerDetails);
