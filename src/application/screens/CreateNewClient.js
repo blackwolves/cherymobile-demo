@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import FormList from './components/FormList/FormList';
 import FromListItem from './components/FormList/FormListItem';
+import ScanBusinessCard from './components/ScanBusinessCard/ScanBusinessCard';
 
 class CreateNewClient extends React.Component {
 
@@ -51,6 +52,7 @@ class CreateNewClient extends React.Component {
 		return ( 
 			<ScrollView>
 				<View style={styles.container}>
+					<ScanBusinessCard text="快速扫描名片自动添加以下部分信息" iconLeft="camera" iconRight="angle-right" />
 					<FormList>
 						<FromListItem type="input" label="客户姓名*" placeholder="请填写" />
 						<FromListItem type="input" label="联系电话*" placeholder="请填写" />
