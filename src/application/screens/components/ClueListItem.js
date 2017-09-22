@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Button, StyleSheet, TouchableHighlight } from '
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Label from './Label';
 import _ from 'lodash';
+import Styles from '../../styles/ListScreenStyle';
 
 class ClueListItem extends React.Component {
     constructor(props) {
@@ -15,7 +16,6 @@ class ClueListItem extends React.Component {
         if (data.labels) {
             labelComponents = _.map(data.labels, function(rowData) {
                 return (<Label
-                               key={ rowData.key }
                                style={ { marginLeft: 10 } }
                                text={ rowData.text }
                                color={ _.isEqual(rowData.text, '新增') ? "#d50000" : "#64dd17" } />);
@@ -28,8 +28,9 @@ class ClueListItem extends React.Component {
 
     render() {
         const lableList = this._createLabelList();
-        return (<TouchableHighlight
-                                    key={ this.props.data.key }
+        return (
+              <View style={Styles.thumbnail}>
+                <TouchableHighlight
                                     style={ styles.touchable }
                                     onPress={ this.props.onPressEvent }>
                   <View style={ [styles.base, styles.container] }>
@@ -54,7 +55,8 @@ class ClueListItem extends React.Component {
                                    color="#9E9E9E" />
                     </View>
                   </View>
-                </TouchableHighlight>);
+                </TouchableHighlight>            
+              </View>)
     }
 }
 
