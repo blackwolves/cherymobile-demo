@@ -41,9 +41,9 @@ class HomeScreen extends React.Component {
               </View>
               <View style={ [styles.base, styles.topBar] }>
                 <TouchableHighlight
-                                    style={ styles.touchable }
+                                    style={ [styles.touchable, styles.leftTopBar] }
                                     onPress={ this.navigateTo.bind(this, "month") }>
-                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                  <View style={ [styles.base, styles.topChildBar, styles.leftTopBar] }>
                     <Text style={ styles.textNumber }>
                       5
                     </Text>
@@ -55,7 +55,7 @@ class HomeScreen extends React.Component {
                 <TouchableHighlight
                                     style={ styles.touchable }
                                     onPress={ this.navigateTo.bind(this, "month") }>
-                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                  <View style={ [styles.base, styles.topChildBar] }>
                     <Text style={ styles.textNumber }>
                       4
                     </Text>
@@ -65,9 +65,9 @@ class HomeScreen extends React.Component {
                   </View>
                 </TouchableHighlight>
                 <TouchableHighlight
-                                    style={ styles.touchable }
+                                    style={ [styles.touchable, styles.rightTopBar] }
                                     onPress={ this.navigateTo.bind(this, "month") }>
-                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                  <View style={ [styles.base, styles.topChildBar, styles.rightTopBar] }>
                     <Text style={ styles.textNumber }>
                       8
                     </Text>
@@ -125,12 +125,24 @@ const styles = StyleSheet.create({
     topBar: {
         marginLeft: 10,
         marginRight: 10,
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         top: 85,
         height: 140,
         position: 'absolute',
         width: '96%',
         borderRadius: 5
+    },
+    topChildBar: {
+        flexDirection: 'column',
+        backgroundColor: 'white'
+    },
+    leftTopBar: {
+        borderBottomLeftRadius: 5,
+        borderTopLeftRadius: 5
+    },
+    rightTopBar: {
+        borderBottomRightRadius: 5,
+        borderTopRightRadius: 5
     },
     textStyle: {
         textAlign: 'center',
