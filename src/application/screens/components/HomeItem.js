@@ -40,17 +40,18 @@ class HomeItem extends React.Component {
 
 const styles = StyleSheet.create({
     touchable: {
-        width: '100%',
-        height: 80,
+        height: 62,
         margin: 5,
+        marginLeft: 10,
+        marginRight: 10,
         backgroundColor: '#ecf0f1'
     },
     icon: {
         backgroundColor: '#c0392b',
-        borderRadius: 50,
         padding: 10,
         color: 'white',
-        marginLeft: 10
+        marginLeft: 10,
+        borderRadius: 50
     },
     base: {
         flex: 1,
@@ -60,7 +61,8 @@ const styles = StyleSheet.create({
     },
     container: {
         padding: 10,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderRadius: 5
     },
     leftContainer: {
         width: '80%',

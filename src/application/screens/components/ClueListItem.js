@@ -16,6 +16,7 @@ class ClueListItem extends React.Component {
         if (data.labels) {
             labelComponents = _.map(data.labels, function(rowData) {
                 return (<Label
+                               key={ rowData.key }
                                style={ { marginLeft: 10 } }
                                text={ rowData.text }
                                color={ _.isEqual(rowData.text, '新增') ? "#d50000" : "#64dd17" } />);
@@ -29,34 +30,34 @@ class ClueListItem extends React.Component {
     render() {
         const lableList = this._createLabelList();
         return (
-              <View style={Styles.thumbnail}>
-                <TouchableHighlight
-                                    style={ styles.touchable }
-                                    onPress={ this.props.onPressEvent }>
-                  <View style={ [styles.base, styles.container] }>
-                    <View style={ styles.leftContainer }>
-                      <Text style={ styles.title }>
-                        { this.props.data.text }
-                      </Text>
-                      { lableList }
-                    </View>
-                    <View style={ [styles.base, styles.rightContainer] }>
-                      <View>
-                        <Text style={ styles.title }>
-                          { this.props.data.level }
-                        </Text>
-                        <Text style={ styles.statusStyle }>
-                          { this.props.data.status }
-                        </Text>
-                      </View>
-                      <Icon.Button
-                                   name="angle-right"
-                                   backgroundColor="transparent"
-                                   color="#9E9E9E" />
-                    </View>
+            <View style={ Styles.thumbnail }>
+              <TouchableHighlight
+                                  style={ styles.touchable }
+                                  onPress={ this.props.onPressEvent }>
+                <View style={ [styles.base, styles.container] }>
+                  <View style={ styles.leftContainer }>
+                    <Text style={ styles.title }>
+                      { this.props.data.text }
+                    </Text>
+                    { lableList }
                   </View>
-                </TouchableHighlight>            
-              </View>)
+                  <View style={ [styles.base, styles.rightContainer] }>
+                    <View>
+                      <Text style={ styles.title }>
+                        { this.props.data.level }
+                      </Text>
+                      <Text style={ styles.statusStyle }>
+                        { this.props.data.status }
+                      </Text>
+                    </View>
+                    <Icon.Button
+                                 name="angle-right"
+                                 backgroundColor="transparent"
+                                 color="#9E9E9E" />
+                  </View>
+                </View>
+              </TouchableHighlight>
+            </View>)
     }
 }
 

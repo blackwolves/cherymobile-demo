@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableHighlight, Platform, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableHighlight, Image, Platform, StyleSheet } from 'react-native';
 import Button from 'apsl-react-native-button';
 import { connect } from 'react-redux';
 import * as appActions from '../../reducers/app/actions';
@@ -31,45 +31,51 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <View style={ styles.container }>
-              <View style={ [styles.base, { backgroundColor: 'lightgray', marginBottom: 20 }] }>
-                <View style={ [styles.base, { height: '70%', bottom: -30, overflow: 'visible' }] }>
-                  <TouchableHighlight
-                                      style={ styles.touchable }
-                                      onPress={ this.navigateTo.bind(this, "month") }>
-                    <View style={ [styles.base, { flexDirection: 'column' }] }>
-                      <Text style={ styles.textNumber }>
-                        5
-                      </Text>
-                      <Text style={ styles.textStyle }>
-                        本月线索
-                      </Text>
-                    </View>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                                      style={ styles.touchable }
-                                      onPress={ this.navigateTo.bind(this, "month") }>
-                    <View style={ [styles.base, { flexDirection: 'column' }] }>
-                      <Text style={ styles.textNumber }>
-                        4
-                      </Text>
-                      <Text style={ styles.textStyle }>
-                        本月下订
-                      </Text>
-                    </View>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                                      style={ styles.touchable }
-                                      onPress={ this.navigateTo.bind(this, "month") }>
-                    <View style={ [styles.base, { flexDirection: 'column' }] }>
-                      <Text style={ styles.textNumber }>
-                        8
-                      </Text>
-                      <Text style={ styles.textStyle }>
-                        本月交车
-                      </Text>
-                    </View>
-                  </TouchableHighlight>
-                </View>
+              <View style={ { backgroundColor: 'lightgray', marginBottom: 40 } }>
+                <Image
+                       style={ { width: '100%', height: 200 } }
+                       color="#E6E6E6"
+                       resizeMode={ Image.resizeMode.stretch }
+                       source={ require('../../../img/logo.png') }>
+                </Image>
+              </View>
+              <View style={ [styles.base, styles.topBar] }>
+                <TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.navigateTo.bind(this, "month") }>
+                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                    <Text style={ styles.textNumber }>
+                      5
+                    </Text>
+                    <Text style={ styles.textStyle }>
+                      本月线索
+                    </Text>
+                  </View>
+                </TouchableHighlight>
+                <TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.navigateTo.bind(this, "month") }>
+                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                    <Text style={ styles.textNumber }>
+                      4
+                    </Text>
+                    <Text style={ styles.textStyle }>
+                      本月下订
+                    </Text>
+                  </View>
+                </TouchableHighlight>
+                <TouchableHighlight
+                                    style={ styles.touchable }
+                                    onPress={ this.navigateTo.bind(this, "month") }>
+                  <View style={ [styles.base, { flexDirection: 'column' }] }>
+                    <Text style={ styles.textNumber }>
+                      8
+                    </Text>
+                    <Text style={ styles.textStyle }>
+                      本月交车
+                    </Text>
+                  </View>
+                </TouchableHighlight>
               </View>
               <HomeItem
                         text="新增线索"
@@ -114,8 +120,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
+        backgroundColor: 'transparent'
+    },
+    topBar: {
+        marginLeft: 10,
+        marginRight: 10,
         backgroundColor: 'white',
-        borderRadius: 10
+        top: 85,
+        height: 140,
+        position: 'absolute',
+        width: '96%',
+        borderRadius: 5
     },
     textStyle: {
         textAlign: 'center',
