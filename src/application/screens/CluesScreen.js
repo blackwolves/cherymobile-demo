@@ -92,9 +92,7 @@ class CluesScreen extends React.Component {
 
    _renderRow = (rowData, sectionID, rowID) => {
         return (
-            <View style={styles.thumbnail}>
                 <ClueListItem style={styles.textContainer} data={rowData} onPressEvent={event => this.navigateToDetail(event, rowData)}/>
-            </View>
         );
     }
 

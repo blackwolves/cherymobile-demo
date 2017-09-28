@@ -143,6 +143,8 @@ class ClueDetailScreen extends React.Component {
         return (<ScrollableTabView
                                    style={ { marginTop: 20 } }
                                    initialPage={ 0 }
+                                   tabBarActiveTextColor='#d50000'
+                                   tabBarUnderlineStyle={ { backgroundColor: '#d50000' } }
                                    renderTabBar={ () => <DefaultTabBar textStyle={ styles.tabText } /> }>
                   <ScrollView
                               tabLabel="跟进情况"
@@ -151,10 +153,10 @@ class ClueDetailScreen extends React.Component {
                       <Timeline
                                 style={ styles.list }
                                 data={ this.state.data }
-                                circleSize={ 16 }
-                                circleColor="gray"
-                                lineColor="gray"
-                                descriptionStyle={ { color: 'gray' } }
+                                circleSize={ 12 }
+                                circleColor="#37474F"
+                                lineColor="#E6E6E6"
+                                descriptionStyle={ { color: '#37474F' } }
                                 options={ { style: { paddingTop: 5 }, refreshControl: ( <RefreshControl refreshing={ this.state.isRefreshing } onRefresh={ this.onRefresh } /> ), renderFooter: this.renderFooter, onEndReached: this.onEndReached } }
                                 onEventPress={ this.onEventPress } />
                     </View>

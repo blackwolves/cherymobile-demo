@@ -79,7 +79,7 @@ export default class Timeline extends Component {
             borderColor: lineColor,
             borderLeftWidth: lineWidth,
             borderRightWidth: 0,
-            marginLeft: 8,
+            marginLeft: 5,
             paddingLeft: 20
         };
 
@@ -157,10 +157,11 @@ export default class Timeline extends Component {
             left: 0
         };
 
+        let dotSize = circleSize - circleSize / 3;
         const dotStyle = {
-            height: circleSize / 2,
-            width: circleSize / 2,
-            borderRadius: circleSize / 4,
+            height: dotSize,
+            width: dotSize,
+            borderRadius: dotSize / 2,
             backgroundColor: rowData.dotColor ? rowData.dotColor : this.props.dotColor ? this.props.dotColor : defaultDotColor
         };
         const innerCircle = (<View style={ [styles.dot, dotStyle] } />);
