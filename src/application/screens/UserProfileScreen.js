@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, ScrollView, Dimensions, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {connect} from 'react-redux';
 import Row from './components/Row';
 
 const width = Dimensions.get(`window`).width;
@@ -10,6 +11,12 @@ class UserProfileScreen extends React.Component {
         this.name = "张三";
         this.role = "销售顾问";
         this.photo = '../../../img/beach.jpg';
+        this.fullCalculation = this.fullCalculation.bind(this);
+        this.loanCalculation = this.loanCalculation.bind(this);
+        this.sendGroupMessage = this.sendGroupMessage.bind(this);
+        this.setUpRegistration = this.setUpRegistration.bind(this);
+        this.userInfo = this.userInfo.bind(this);
+        this.setUp = this.setUp.bind(this);
     }
 
     fullCalculation() {
@@ -166,4 +173,4 @@ const styles = StyleSheet.create({
         height: 70
     }
 });
-export default UserProfileScreen;
+export default connect()(UserProfileScreen);

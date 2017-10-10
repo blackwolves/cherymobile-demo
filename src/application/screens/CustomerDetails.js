@@ -75,6 +75,14 @@ class CustomerDetails extends React.Component {
                 console.log(err);
             });
     };
+
+    sendMessage(){
+        Linking.openURL('sms:+19725551212?body=hello%20there')
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
     navigateToDetail(event, rowData) {
         this.props.navigator.push({
             screen: 'application.ClueDetailScreen',
@@ -113,7 +121,7 @@ class CustomerDetails extends React.Component {
                       onPress={this.callCustomer}
                       style={{marginTop: 5}}/>
                 <Icon name="envelope" size={30} color="blue" backgroundColor="floralwhite"
-                      onPress={this.callCustomer}
+                      onPress={this.sendMessage}
                       style={{marginLeft: 50, marginTop: 5}}/>
                 <Icon name="phone" size={30} color="darkorchid" backgroundColor="floralwhite"
                       onPress={this.callCustomer}
