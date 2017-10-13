@@ -17,20 +17,16 @@ export default function app(state = initialState, action = {}) {
                 loginStatus: action.loginStatus,
                 errorMessage: action.errorMessage
             });
-            break;
         case types.LOADING_CHANGED:
             return state.merge({
                 loading: action.loading
             });
-            break;
         case types.REQUEST_TEMPLATE_CONTENT:
             return state;
-            break;
         case types.ADD_TEMPLATE_CONTENT:
             const aMessageTemplate = state.messageTemplate.asMutable();
             aMessageTemplate.push(action.content);
             return state.set("messageTemplate",aMessageTemplate);
-            break;
         default:
             return state;
     }
