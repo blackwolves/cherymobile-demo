@@ -42,6 +42,8 @@ import UserProfileScreen from './application/screens/UserProfileScreen';
 import SelectModal from './application/screens/SelectModal';
 import CreateNewClient from './application/screens/CreateNewClient';
 import SendMessageScreen from './application/screens/SendMessageScreen';
+import SelectClient from './application/screens/SelectClient';
+import SendMessageToClient from './application/screens/SendMessageToClient';
 
 export function registerScreens(store, Provider) {
     Navigation.registerComponent('demo.LoginScreen', () => DemoLoginScreen, store, Provider);
@@ -83,4 +85,6 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('application.CustomerDetails', () => CustomerDetails, store, Provider);
     Navigation.registerComponent('application.CreateNewClient', () => CreateNewClient, store, Provider);
     Navigation.registerComponent('application.SendMessageScreen', () => SendMessageScreen, store, Provider);
+    Navigation.registerComponent('application.SelectClient', () => SelectClient, store, Provider);
+    Navigation.registerComponent('application.SendMessageToClient', () => SendMessageToClient, store, Provider);
 }

@@ -29,7 +29,7 @@ class UserProfileScreen extends React.Component {
 
     sendGroupMessage() {
         this.props.navigator.push({
-            screen: 'application.ChooseCustomer',
+            screen: 'application.SelectClient',
             title: '选择客户',
             navigatorStyle: {
                 tabBarHidden: true,
@@ -129,11 +129,10 @@ const styles = StyleSheet.create({
     TouchableOpacity: {
         flex: 0.25,
         flexDirection: 'column',
-        marginLeft: 20,
-        marginRight: 20,
+        marginLeft: 10,
+        marginRight: 10,
         marginTop: 20,
         height: 70,
-        width: 70,
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center'
@@ -141,6 +140,7 @@ const styles = StyleSheet.create({
     barText: {
         alignItems: 'center',
         justifyContent: 'center',
+        overflow : 'hidden',
         fontSize: 15
     },
     roleText: {

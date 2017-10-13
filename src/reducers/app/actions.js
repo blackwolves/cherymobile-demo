@@ -111,3 +111,16 @@ export function logout() {
         dispatch(changeLoginStatus('demo-login'));
     };
 }
+
+export function requestMessageTemplate(){
+    return {
+        type: types.REQUEST_TEMPLATE_CONTENT
+    };
+}
+
+export function addMessageTemplate(sMessage){
+    return {
+        type:types.ADD_TEMPLATE_CONTENT,
+        content: {content: sMessage}
+    };
+}
