@@ -16,22 +16,35 @@ class AddNewMessageTemplate extends React.Component{
 		if(this.state.isAddingTemplate){
 			return(
 				<View style={styles.inputContainer}>
-					<TextInput 
-					style={style.textInput}
-					placeholder={'请输入模版内容'}
-					onChangeText={(text)=>this.setState({templateContent:text})}
-					underlineColorAndroid='transparent'
-					value={this.state.templateContent}
-					/>
-					<Button 
-					title={'确定'}
-					onPress={()=>{
-						this.setState({isAddingTemplate:false});
-						this.props.addNewTemplate(this.state.templateContent);
-						this.setState({templateContent:''});
-					}}
-					disabled={!Boolean(this.state.templateContent)}
-					/>					
+					<View style={styles.textInputContainer}>
+						<TextInput 
+						style={style.textInput}
+						placeholder={'请输入模版内容'}
+						onChangeText={(text)=>this.setState({templateContent:text})}
+						underlineColorAndroid='transparent'
+						value={this.state.templateContent}
+						/>						
+					</View>
+					<View style={styles.button}>
+						<Button 
+						title={'确定'}
+						onPress={()=>{
+							this.setState({isAddingTemplate:false});
+							this.props.addNewTemplate(this.state.templateContent);
+							this.setState({templateContent:''});
+						}}
+						disabled={!Boolean(this.state.templateContent)}
+						/>							
+					</View>
+					<View style={styles.button}>
+						<Button 
+						title={'取消'}
+						onPress={()=>{
+							this.setState({isAddingTemplate:false});
+							this.setState({templateContent:''});
+						}}
+						/>							
+					</View>			
 				</View>
 				);
 		}
@@ -78,11 +91,19 @@ const styles = StyleSheet.create({
 	},
 	inputContainer:{
 		flexDirection:'column',
-		padding:10,
-		backgroundColor:'white'
+		padding:10
 	},
 	toolKitContainer:{
 		backgroundColor:'white'
+	},
+	button:{
+		marginTop:10
+	},
+	textInputContainer:{
+		backgroundColor:'white',
+		marginLeft:-10,
+		marginRight:-10,
+		padding:10
 	},
 });
 

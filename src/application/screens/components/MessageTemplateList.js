@@ -1,37 +1,63 @@
 import React from 'react';
-import CheckBox from 'react-native-check-box';
 import {Text, View, ListView, StyleSheet} from 'react-native';
 import {convertNumberToChinese} from '../../Utils/utils';
+import MessageTemplate from './MessageTemplate';
+import Immutable from 'seamless-immutable';
 
 class MessageTemplateList extends React.Component{
 	constructor(props){
 		super(props);
+		let isActiveArray = [];
+		for(let i = 0;i<this.props.templateList.length;i++){
+			isActiveArray.push(false);
+		};
 		this.state = {
-			isActive: false
+			isActive: isActiveArray,
+			activeMessageContent:''
 		};
 		this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.handlePress = this.handlePress.bind(this);
+		this.modifyMessageContent = this.modifyMessageContent.bind(this);
+		this.getActiveMessageTemplate = this.getActiveMessageTemplate.bind(this);
 	}
 
-	handlePress(){
-		this.setState((preState, props)=>({isActive:!preState.isActive}));
+	handlePress(rowId){
+		this.setState((preState, props)=>{
+			const oState = Immutable(preState);
+			let aStateData = oState.isActive.asMutable();
+			if(!preState.isActive[rowId]){
+				oState.isActive.every(function(bItem,iIndex){
+					if(iIndex !== rowId){
+						aStateData[iIndex] = false;
+					}
+					aStateData[rowId] = true;
+					return true;
+				});
+			}else{
+				aStateData[rowId] = false;
+			}
+			return{isActive:aStateData};
+		});
+	}
+
+	modifyMessageContent(sContent){
+		this.setState({activeMessageContent:sContent});
+	}
+
+	getActiveMessageTemplate(){
+		return this.state.activeMessageContent;
 	}
 
 	_renderRow(rowData, rowId){
-		const sLeftText = `短信模版${convertNumberToChinese.numberToChinese(++rowId)}`;
 		return(
-				<View style={styles.container}>
-					<CheckBox
-					 style={styles.checkbox}
-					 onClick={()=>this.handlePress()}
-					 isChecked={this.state.isActive}
-					 leftText={sLeftText}
-					 checkBoxColor={'red'}
-					/>
-					<View style={styles.contentContainer}>
-						<Text style={styles.content}>{`短信内容: ${rowData.content}`}</Text>
-					</View>	
-				</View>
+				<MessageTemplate 
+					rowId={parseInt(rowId)} 
+					rowData={rowData} 
+					isActive={this.state.isActive[rowId]} 
+					handlePress={this.handlePress} 
+					key={rowId}
+					modifyMessageContent={this.modifyMessageContent}
+				/>
 			);
 	}
 
@@ -44,30 +70,5 @@ class MessageTemplateList extends React.Component{
 			);
 	}
 }
-
-const styles = StyleSheet.create({
-	checkbox:{
-		flex: 1,
-		padding: 10
-	},
-	container:{
-		flexDirection: 'column',
-		marginBottom: 15,
-		backgroundColor:'white'
-	},
-	contentContainer:{
-		marginLeft:10,
-		marginBottom:10,
-		flexDirection:'row',
-		justifyContent:'flex-start',
-		alignItems:'center',
-		borderTopColor:'grey',
-		borderTopWidth:1
-	},
-	content:{
-		paddingTop:5,
-		paddingRight:5
-	}
-});
 
 export default MessageTemplateList;

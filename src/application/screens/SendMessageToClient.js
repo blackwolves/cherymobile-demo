@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, StyleSheet, KeyboardAvoidingView, ScrollView} from 'react-native';
+import {View, StyleSheet, KeyboardAvoidingView, ScrollView, Linking, Alert} from 'react-native';
 import {requestMessageTemplate, addMessageTemplate} from '../../reducers/app/actions';
 import AddNewMessageTemplate from './components/AddNewMessageTemplate';
 import MessageTemplateList from './components/MessageTemplateList';
@@ -22,10 +22,24 @@ class SendMessageToClient extends React.Component{
 		this.state = {
 
 		};
+		this.getActiveMessageTemplate = this.getActiveMessageTemplate.bind(this);
+		this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
 	}
 
 	componentWillMount(){
 		this.props.requestTemplate();
+	}
+
+	onNavigatorEvent(event){
+		switch(event.id){
+			case 'send' : 
+				Alert.alert(this.getActiveMessageTemplate());
+				break;
+		}
+	}
+
+	getActiveMessageTemplate(){
+		return this.MessageTemplateList.getActiveMessageTemplate();
 	}
 
 	render(){
@@ -33,7 +47,7 @@ class SendMessageToClient extends React.Component{
 			<KeyboardAvoidingView behavior='position'>
 				<ScrollView>
 					<View style={styles.container}>
-						<MessageTemplateList templateList={this.props.messageTemplate}/>
+						<MessageTemplateList templateList={this.props.messageTemplate} ref={(MessageTemplateList)=>this.MessageTemplateList=MessageTemplateList}/>
 						<AddNewMessageTemplate addNewTemplate={this.props.addTemplate}/>	
 					</View>						
 				</ScrollView>			
