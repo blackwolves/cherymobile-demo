@@ -1,5 +1,6 @@
 package com.cherymobile;
 
+import com.tkporter.sendsms.SendSMSPackage;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativecomponent.swiperefreshlayout.RCTSwipeRefreshLayoutPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -40,7 +41,8 @@ public class MainApplication extends NavigationApplication {
             //new NavigationReactPackage(),
             new VectorIconsPackage(),
             new RCTSwipeRefreshLayoutPackage(),
-            new ReactNativeFingerprintScannerPackage()
+            new ReactNativeFingerprintScannerPackage(),
+            SendSMSPackage.getInstance()
          );
      }
 

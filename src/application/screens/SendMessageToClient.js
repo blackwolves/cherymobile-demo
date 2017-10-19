@@ -4,6 +4,7 @@ import {View, StyleSheet, KeyboardAvoidingView, ScrollView, Linking, Alert} from
 import {requestMessageTemplate, addMessageTemplate} from '../../reducers/app/actions';
 import AddNewMessageTemplate from './components/AddNewMessageTemplate';
 import MessageTemplateList from './components/MessageTemplateList';
+import SendSMS from 'react-native-sms';
 
 class SendMessageToClient extends React.Component{
 	static navigatorButtons = {
@@ -33,7 +34,20 @@ class SendMessageToClient extends React.Component{
 	onNavigatorEvent(event){
 		switch(event.id){
 			case 'send' : 
-				Alert.alert(this.getActiveMessageTemplate());
+				SendSMS.send({
+					body: this.getActiveMessageTemplate(),
+					recipients: ['0123456789', '9876543210'],
+					successTypes: ['all']
+				}, (completed, cancelled, error) => {
+					//it seems that the completed and cancelled is not correct here which place in the oppsite site.
+					//but the official document write like this actually.
+					setTimeout(()=>{
+						this.props.navigator.pop({
+							  animated: true,
+							  animationType: 'fade',
+						});
+					},1000);
+				});
 				break;
 		}
 	}

@@ -141,6 +141,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-sms')
     compile project(':react-native-camera')
     compile project(':react-native-cookies')
     compile project(':react-native-getui')
