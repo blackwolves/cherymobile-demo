@@ -128,16 +128,9 @@ export function addMessageTemplate(sMessage) {
     };
 }
 
-export function updateSelectedTabIndex(sSelectedTab) {
+export function updateSelectedTab(sSelectedTab) {
     return {
         type: types.UPDATE_SELECTED_TAB,
         selectedTab: sSelectedTab
-    };
-}
-
-export function updateSelectedTab(sSelectedTab) {
-    return async function(dispatch, getState) {
-        // dispatch(changeLoginStatus('application-CustomizeTabsScreen'));
-        dispatch(updateSelectedTabIndex(sSelectedTab));
     };
 }

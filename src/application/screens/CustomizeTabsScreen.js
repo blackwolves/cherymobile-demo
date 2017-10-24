@@ -87,14 +87,14 @@ class CustomizeTabsScreen extends React.Component {
     }
 
     _setSelectedTab(tabName) {
-        appActions.updateSelectedTab(tabName);
+        this.props.dispatch(appActions.updateSelectedTab(tabName));
     }
     performBack() {
         this.props.dispatch(appActions.changeLoginStatus('start', 'initial'));
     }
     componentWillReceiveProps(nextProps) {
         let next = nextProps;
-        Alert.alert(nextProps);
+    // todo next step
     }
     navigateTo(type) {
         if (type === "addClue") {
