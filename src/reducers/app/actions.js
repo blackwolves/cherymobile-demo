@@ -5,7 +5,8 @@ import * as Constants from '../../lib/Constants';
 
 export function appInitialized() {
     return async function(dispatch, getState) {
-        dispatch(changeLoginStatus('application-home'));
+        // dispatch(changeLoginStatus('application-CustomizeTabsScreen'));
+        dispatch(changeLoginStatus('start'));
     };
 }
 
@@ -112,15 +113,31 @@ export function logout() {
     };
 }
 
-export function requestMessageTemplate(){
+export function requestMessageTemplate() {
     return {
         type: types.REQUEST_TEMPLATE_CONTENT
     };
 }
 
-export function addMessageTemplate(sMessage){
+export function addMessageTemplate(sMessage) {
     return {
-        type:types.ADD_TEMPLATE_CONTENT,
-        content: {content: sMessage}
+        type: types.ADD_TEMPLATE_CONTENT,
+        content: {
+            content: sMessage
+        }
+    };
+}
+
+export function updateSelectedTabIndex(sSelectedTab) {
+    return {
+        type: types.UPDATE_SELECTED_TAB,
+        selectedTab: sSelectedTab
+    };
+}
+
+export function updateSelectedTab(sSelectedTab) {
+    return async function(dispatch, getState) {
+        // dispatch(changeLoginStatus('application-CustomizeTabsScreen'));
+        dispatch(updateSelectedTabIndex(sSelectedTab));
     };
 }

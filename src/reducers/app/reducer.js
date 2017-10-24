@@ -6,7 +6,12 @@ const initialState = Immutable({
     loading: false, //flag for display busy indicator
     loginStatus: 'initial', //'initial'/'success' / 'error'
     errorMessage: '',
-    messageTemplate: [{content:'尊敬的王先生，我是奇瑞XX店铺顾问张三，根据您的需求，我店欢迎您前来店里进一步体验咨询'},{content:'尊敬的王先生，我是奇瑞XX店铺顾问张三，根据您的需求，我店欢迎您前来店里进一步体验咨询'}]
+    selectedTab: 'home', // only used for customized tabs screen
+    messageTemplate: [{
+        content: '尊敬的王先生，我是奇瑞XX店铺顾问张三，根据您的需求，我店欢迎您前来店里进一步体验咨询'
+    }, {
+        content: '尊敬的王先生，我是奇瑞XX店铺顾问张三，根据您的需求，我店欢迎您前来店里进一步体验咨询'
+    }]
 });
 
 export default function app(state = initialState, action = {}) {
@@ -26,7 +31,11 @@ export default function app(state = initialState, action = {}) {
         case types.ADD_TEMPLATE_CONTENT:
             const aMessageTemplate = state.messageTemplate.asMutable();
             aMessageTemplate.push(action.content);
-            return state.set("messageTemplate",aMessageTemplate);
+            return state.set("messageTemplate", aMessageTemplate);
+        case types.UPDATE_SELECTED_TAB:
+            return state.merge({
+                selectedTab: action.selectedTab
+            });
         default:
             return state;
     }
