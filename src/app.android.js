@@ -146,6 +146,16 @@ export default class App {
                     }
                 });
                 return;
+            case 'application-CustomizeTabsScreen':
+                Navigation.startSingleScreenApp({
+                    screen: {
+                        screen: 'application.CustomizeTabsScreen',
+                        title: '',
+                        navigatorStyle: {
+                        }
+                    }
+                });
+                return;
             case 'application-home':
                 // this will start our app
                 Navigation.startTabBasedApp({

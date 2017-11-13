@@ -44,6 +44,7 @@ import CreateNewClient from './application/screens/CreateNewClient';
 import SendMessageScreen from './application/screens/SendMessageScreen';
 import SelectClient from './application/screens/SelectClient';
 import SendMessageToClient from './application/screens/SendMessageToClient';
+import CustomizeTabsScreen from './application/screens/CustomizeTabsScreen';
 
 export function registerScreens(store, Provider) {
     Navigation.registerComponent('demo.LoginScreen', () => DemoLoginScreen, store, Provider);
@@ -87,4 +88,5 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('application.SendMessageScreen', () => SendMessageScreen, store, Provider);
     Navigation.registerComponent('application.SelectClient', () => SelectClient, store, Provider);
     Navigation.registerComponent('application.SendMessageToClient', () => SendMessageToClient, store, Provider);
+    Navigation.registerComponent('application.CustomizeTabsScreen', () => CustomizeTabsScreen, store, Provider);
 }

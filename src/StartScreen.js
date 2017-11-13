@@ -25,6 +25,9 @@ class StartScreen extends Component {
     startApp() {
         this.props.dispatch(appActions.changeLoginStatus("application-home"));
     }
+    startCustomizeTabsApp() {
+        this.props.dispatch(appActions.changeLoginStatus("application-CustomizeTabsScreen"));
+    }
     render() {
         return (
             <View style={ styles.container }>
@@ -41,6 +44,13 @@ class StartScreen extends Component {
                       textStyle={ styles.textStyle6 }
                       onPress={ this.startApp.bind(this) }>
                 开发系统
+              </Button>
+              <Button
+                      isLoading={ false }
+                      style={ styles.buttonContainer }
+                      textStyle={ styles.textStyle6 }
+                      onPress={ this.startCustomizeTabsApp.bind(this) }>
+                定制化底部开发系统
               </Button>
             </View>
             );
