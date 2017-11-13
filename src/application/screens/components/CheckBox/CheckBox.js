@@ -37,9 +37,9 @@ class CheckBox extends React.PureComponent{
 
 	render(){
 		return(
-			<TouchableHighlight onPress={()=>this.props.onValueChange()} activeOpacity={0.5} underlayColor={'transparent'}>
-				{this._renderIcon()}
-			</TouchableHighlight>
+				<View>
+					{this._renderIcon()}
+				</View>
 			);
 	}
 }
